@@ -135,7 +135,6 @@
   # (e.g. man default.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-
   # Shortcuts
   environment.shellAliases = {
     vim = "sudo nvim";

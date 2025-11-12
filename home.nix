@@ -14,5 +14,14 @@
   home.username = "moon";
   home.homeDirectory = "/home/moon";
   home.stateVersion = "25.05";
-  home.packages = with pkgs; [ jq ];
+
+  # Packages that should be installed to the user profile.
+  home.packages = with pkgs; [
+    jq # A lightweight and flexible command-line JSON processor
+  ];
+
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
 }
