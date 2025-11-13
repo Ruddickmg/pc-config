@@ -3,7 +3,7 @@
     ./yazi.nix
     ./ssh.nix
     ./bash.nix
-    ./direnv.nix
+    (import ./direnv.nix { pkgs = pkgs; })
     (import ./starship.nix { pkgs = pkgs; })
     (import ./neovim.nix { pkgs = pkgs; })
     (import ./git.nix { pkgs = pkgs; })

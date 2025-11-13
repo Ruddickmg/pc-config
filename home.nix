@@ -11,7 +11,7 @@
     })
   ];
 
-  home.packages = with pkgs; [ jq direnv nix-direnv ];
+  home.packages = with pkgs; [ jq ];
   home.username = "moon";
   home.homeDirectory = "/home/moon";
   home.stateVersion = "25.05";
