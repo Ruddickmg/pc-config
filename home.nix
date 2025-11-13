@@ -11,11 +11,7 @@
     })
   ];
 
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    jq # A lightweight and flexible command-line JSON processor
-  ];
-
+  home.packages = with pkgs; [ jq direnv nix-direnv ];
   home.username = "moon";
   home.homeDirectory = "/home/moon";
   home.stateVersion = "25.05";
