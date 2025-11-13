@@ -7,6 +7,7 @@
       "nix-idea"
       "com.chrisrm.idea.MaterialThemeUI"
       "co.anbora.labs.direnv"
+      "ru.adelf.idea.dotenv"
     ])
   ];
 }
