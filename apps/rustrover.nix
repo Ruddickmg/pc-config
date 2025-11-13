@@ -3,8 +3,10 @@
   # $ nix search wget
   home.packages = with jetbrains-plugins.lib.${system}; [
     (buildIdeWithPlugins pkgs-unstable.jetbrains "rust-rover" [
+      "Docker"
       "nix-idea"
       "com.chrisrm.idea.MaterialThemeUI"
+      "co.anbora.labs.direnv"
     ])
   ];
 }
