@@ -11,17 +11,17 @@
     })
   ];
 
-  home.username = "moon";
-  home.homeDirectory = "/home/moon";
-  home.stateVersion = "25.05";
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     jq # A lightweight and flexible command-line JSON processor
   ];
 
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
+  home.username = "moon";
+  home.homeDirectory = "/home/moon";
+  home.stateVersion = "25.05";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "firefox";
+    TERM = "kitty";
   };
 }

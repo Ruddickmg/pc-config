@@ -2,6 +2,7 @@
   imports = [
     ./yazi.nix
     ./ssh.nix
+    ./bash.nix
     (import ./starship.nix { pkgs = pkgs; })
     (import ./neovim.nix { pkgs = pkgs; })
     (import ./git.nix { pkgs = pkgs; })
