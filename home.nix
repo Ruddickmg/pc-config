@@ -1,14 +1,6 @@
 { config, pkgs, lib, pkgs-unstable, jetbrains-plugins, system, ... }:
 {
-  imports = [
-    (import ./apps {
-      pkgs = pkgs;
-      pkgs-unstable = pkgs-unstable;
-      jetbrains-plugins = jetbrains-plugins;
-      system = system;
-      lib = lib;
-    })
-  ];
+  imports = [(import ./apps { inherit pkgs pkgs-unstable jetbrains-plugins system lib; })];
 
   home.packages = with pkgs; [ jq ];
   home.username = "moon";
@@ -19,7 +11,6 @@
     BROWSER = "firefox";
     TERM = "kitty";
   };
-
   home.pointerCursor = with pkgs; {
     name = "Adwaita";
     package = adwaita-icon-theme;
