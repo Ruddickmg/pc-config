@@ -5,9 +5,12 @@
     (buildIdeWithPlugins pkgs-unstable.jetbrains "rust-rover" [
       "Docker"
       "nix-idea"
-      "com.chrisrm.idea.MaterialThemeUI"
       "co.anbora.labs.direnv"
       "ru.adelf.idea.dotenv"
+      "com.chrisrm.idea.MaterialThemeUI"
+      "gruvbox-material-dark"
+      "gruvbox-material-light"
+      "org.mvnsearch.plugins.justPlugin"
     ])
   ];
 }

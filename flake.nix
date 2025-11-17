@@ -9,9 +9,14 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-jetbrains-plugins, home-manager, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nix-jetbrains-plugins, home-manager, stylix, nix-colors, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -23,10 +28,13 @@
       jetbrains-plugins = nix-jetbrains-plugins;
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit nix-colors; };
         modules = [
           ./system
           ./configuration.nix
-          home-manager.nixosModules.home-manager {
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.moon = import ./home.nix;

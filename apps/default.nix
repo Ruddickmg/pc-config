@@ -1,17 +1,10 @@
 { lib, pkgs, pkgs-unstable, jetbrains-plugins, system, ... }: {
   imports = [
-    ./yazi.nix
+    (import ./desktop { inherit pkgs; })
+    (import ./editors { inherit pkgs-unstable jetbrains-plugins system; })
+    (import ./terminal { inherit pkgs lib; })
+    (import ./git.nix { inherit pkgs; })
     ./ssh.nix
-    ./bash.nix
-    (import ./direnv.nix { pkgs = pkgs; })
-    (import ./starship.nix { pkgs = pkgs; })
-    (import ./neovim.nix { pkgs = pkgs; })
-    (import ./git.nix { pkgs = pkgs; })
-    (import ./kitty.nix { pkgs = pkgs; lib = lib; })
-    (import ./rustrover.nix {
-      pkgs-unstable = pkgs-unstable;
-      jetbrains-plugins = jetbrains-plugins;
-      system = system;
-    })
+    (import ./surf.nix { inherit pkgs; })
   ];
 }

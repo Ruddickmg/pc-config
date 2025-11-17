@@ -1,5 +1,4 @@
 { config, pkgs, lib, pkgs-unstable, jetbrains-plugins, system, ... }:
-
 {
   imports = [
     (import ./apps {
@@ -19,5 +18,14 @@
     EDITOR = "nvim";
     BROWSER = "firefox";
     TERM = "kitty";
+  };
+                
+  # mouse configuration
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    size = 24;
+    x11.enable = true;
+    x11.defaultCursor = "Adwaita";
   };
 }
