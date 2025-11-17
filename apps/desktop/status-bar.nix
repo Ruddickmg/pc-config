@@ -6,7 +6,6 @@
        bar = {
          location = "top";
          height = 26;
-         background = "00000066";
          right = [
            {
              clock.content = [
