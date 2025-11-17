@@ -4,11 +4,12 @@
     wrapperFeatures.gtk = true;
     package = null;
     config = rec {
+      defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
       terminal = "kitty";
+      window.titlebar = false;
       startup = [
         { command = "fuzzel"; }
-        { command = "yambar"; }
       ];
       keybindings = {
         "${modifier}+0" = "workspace number 10";
