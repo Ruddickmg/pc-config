@@ -19,13 +19,16 @@
     BROWSER = "firefox";
     TERM = "kitty";
   };
-                
-  # mouse configuration
-  home.pointerCursor = {
+
+  # cursor
+  home.pointerCursor = with pkgs; {
     name = "Adwaita";
-    package = pkgs.adwaita-icon-theme;
+    package = adwaita-icon-theme;
     size = 24;
-    x11.enable = true;
-    x11.defaultCursor = "Adwaita";
-  };
+    x11 = {
+      enable = true;
+      defaultCursor = "Adwaita";
+    };
+    gtk.enable = true;
+   };
 }
