@@ -20,7 +20,6 @@
     TERM = "kitty";
   };
 
-  # cursor
   home.pointerCursor = with pkgs; {
     name = "Adwaita";
     package = adwaita-icon-theme;

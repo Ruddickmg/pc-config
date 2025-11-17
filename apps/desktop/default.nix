@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ./sway.nix
-    (import ./yambar.nix { inherit pkgs; })
+    ./window-manager.nix
+    (import ./status-bar.nix { inherit pkgs; })
+    (import ./app-launcher.nix { inherit pkgs; })
   ];
 }

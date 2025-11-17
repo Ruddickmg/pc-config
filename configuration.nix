@@ -52,9 +52,9 @@
   virtualisation.docker.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.middleEmulation = true;
-  services.xserver.libinput.tapping = true;
+  services.libinput.enable = true;
+  services.libinput.touchpad.middleEmulation = true;
+  services.libinput.touchpad.tapping = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.moon = {
