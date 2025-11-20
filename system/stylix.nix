@@ -1,7 +1,6 @@
-{ pkgs, nix-colors, ... }: {
+{ pkgs, ... }: {
   stylix = {
     enable = true;
-    autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-soft.yaml";
     image = pkgs.fetchurl {
       url = "https://images5.alphacoders.com/327/thumb-1920-327372.jpg";

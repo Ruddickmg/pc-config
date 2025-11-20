@@ -8,16 +8,6 @@
     mako # notification system developed by swaywm maintainer
   ];
 
-  # File manager
-  programs.thunar = {
-   enable = true;
-   plugins = with pkgs.xfce; [
-     thunar-archive-plugin
-     thunar-vcs-plugin
-     thunar-volman
-   ];
-  };
-
    # Mount, trash, and other functionalities
   services.gvfs.enable = true;
 

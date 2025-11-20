@@ -13,22 +13,19 @@
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nix-jetbrains-plugins, home-manager, stylix, nix-colors, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, nix-jetbrains-plugins, home-manager, stylix, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = import nixpkgs { system = system; };
       pkgs-unstable = import nixpkgs-unstable {
         system = system;
         config.allowUnfree = true;
       };
       jetbrains-plugins = nix-jetbrains-plugins;
     in {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit nix-colors; };
+      nixosConfigurations.nixos = lib.nixosSystem {
         modules = [
           ./system
           ./configuration.nix
