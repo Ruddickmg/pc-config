@@ -90,6 +90,7 @@
         "${modifier}+Shift+Left" = "workspace prev";
         "${modifier}+Shift+Right" = "workspace next";
         "${modifier}+y" = "exec kitty -e yazi";
+        "${modifier}+m" = "exec btop";
       };
       input = {
         "type:touchpad" = {
