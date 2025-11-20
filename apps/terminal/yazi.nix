@@ -2,6 +2,9 @@
   programs.yazi = {
     enable = true;
     settings = {
+      opener.play = [
+        { run = "vlc $@"; desc = "Open in VLC"; orphan = true; for = "linux"; }
+      ];
       manager = {
         ratio = [
           1

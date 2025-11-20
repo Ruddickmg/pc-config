@@ -32,7 +32,6 @@
       startup = [
         { command = "rust-rover"; }
         { command = "firefox"; }
-        { command = "fuzzel"; }
       ];
       keybindings = {
         "${modifier}+0" = "workspace number 10";
