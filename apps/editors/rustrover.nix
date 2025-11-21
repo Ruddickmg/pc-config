@@ -5,7 +5,7 @@
     (buildIdeWithPlugins pkgs-unstable.jetbrains "rust-rover" [
       "Docker"
       "nix-idea"
-      "co.anbora.labs.direnv"
+#      "co.anbora.labs.direnv"
       "ru.adelf.idea.dotenv"
       "com.chrisrm.idea.MaterialThemeUI"
       "gruvbox-material-dark"

@@ -16,7 +16,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # - Something to do with nixd formatter
-#  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  #  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -109,7 +109,7 @@
 
   # Shortcuts
   environment.shellAliases = {
-    vim = "sudo nvim";
+    audio = "pulsemixer";
     update = "sudo nixos-rebuild switch --flake ~/Nixos";
   };
 }
