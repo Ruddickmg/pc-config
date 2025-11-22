@@ -1,6 +1,6 @@
-{ config, pkgs, lib, pkgs-unstable, jetbrains-plugins, system, ... }:
+{ pkgs, inputs, lib, pkgs-unstable, system, config, ... }:
 {
-  imports = [(import ./apps { inherit pkgs pkgs-unstable jetbrains-plugins system lib; })];
+  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs config; })];
 
   home.packages = with pkgs; [ jq ];
   home.username = "moon";

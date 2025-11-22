@@ -2,7 +2,7 @@
 # your system.  Help is available in the default.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -106,6 +106,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man default.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  environment.variables = {
+    SSH_ASKPASS_REQUIRE = "prefer"; # Prefers graphical prompt if available
+  };
 
   # Shortcuts
   environment.shellAliases = {

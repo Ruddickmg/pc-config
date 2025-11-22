@@ -5,6 +5,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
+    nixCats.url = "path:/home/moon/.config/nvim";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +16,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, nix-jetbrains-plugins, home-manager, stylix, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, stylix, ... } @inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -23,7 +24,6 @@
         system = system;
         config.allowUnfree = true;
       };
-      jetbrains-plugins = nix-jetbrains-plugins;
     in {
       nixosConfigurations.nixos = lib.nixosSystem {
         modules = [
@@ -36,9 +36,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.moon = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-              inherit jetbrains-plugins;
-              inherit system;
+              inherit inputs pkgs-unstable system;
             };
           }
         ];

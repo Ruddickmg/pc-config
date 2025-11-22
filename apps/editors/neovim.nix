@@ -1,9 +1,11 @@
-{ ... }: {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
-}
+{ inputs, ... }:
+  let
+    utils = inputs.nixCats.utils;
+  in {
+    imports = [
+      inputs.nixCats.homeModule
+    ];
+    config.nixCats = {
+      enable = true;
+    };
+  }

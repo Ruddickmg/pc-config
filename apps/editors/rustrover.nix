@@ -1,7 +1,7 @@
-{ pkgs-unstable, jetbrains-plugins, system, ... }: {
+{ pkgs-unstable, inputs, system, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  home.packages = with jetbrains-plugins.lib.${system}; [
+  home.packages = with inputs.nix-jetbrains-plugins.lib.${system}; [
     (buildIdeWithPlugins pkgs-unstable.jetbrains "rust-rover" [
       "Docker"
       "nix-idea"
@@ -11,6 +11,7 @@
       "gruvbox-material-dark"
       "gruvbox-material-light"
       "org.mvnsearch.plugins.justPlugin"
+      "com.cppcxy.emmylua2.attach-debugger"
     ])
   ];
 }

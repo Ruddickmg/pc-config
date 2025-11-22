@@ -1,6 +1,6 @@
-{ pkgs-unstable, jetbrains-plugins, system, ... }: {
+{ pkgs-unstable, system, inputs, config, ... }: {
   imports = [
-    ./neovim.nix
-    (import ./rustrover.nix { inherit pkgs-unstable jetbrains-plugins system; })
+    (import ./neovim.nix { inherit inputs config; })
+    (import ./rustrover.nix { inherit pkgs-unstable inputs system; })
   ];
 }
