@@ -1,13 +1,13 @@
-{ pkgs, inputs, lib, pkgs-unstable, system, config, ... }:
+{ pkgs, inputs, lib, pkgs-unstable, system, ... }:
 {
-  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs config; })];
+  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs; })];
 
   home.packages = with pkgs; [ jq ];
   home.username = "moon";
   home.homeDirectory = "/home/moon";
   home.stateVersion = "25.05";
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "vim";
     BROWSER = "firefox";
     TERM = "kitty";
   };

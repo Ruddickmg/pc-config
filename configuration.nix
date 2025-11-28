@@ -114,6 +114,8 @@
   # Shortcuts
   environment.shellAliases = {
     audio = "pulsemixer";
-    update = "sudo nixos-rebuild switch --flake ~/Nixos";
+    rebuild = "sudo nixos-rebuild switch --flake ~/Nixos";
+    update = "nix flake update --flake ~/Nixos";
+    refresh = "update && rebuild";
   };
 }

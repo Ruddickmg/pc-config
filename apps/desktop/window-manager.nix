@@ -30,7 +30,7 @@
       window.titlebar = false;
       bars = [{ command = "waybar"; }];
       startup = [
-        { command = "rust-rover"; }
+        { command = "kitty"; }
         { command = "firefox"; }
       ];
       keybindings = {

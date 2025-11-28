@@ -1,11 +1,14 @@
-{ inputs, ... }:
-  let
-    utils = inputs.nixCats.utils;
-  in {
-    imports = [
-      inputs.nixCats.homeModule
-    ];
-    config.nixCats = {
-      enable = true;
-    };
-  }
+{ inputs, pkgs-unstable, ... }: {
+   imports = [
+     inputs.nixCats.homeModule
+   ];
+   home.packages = with pkgs-unstable; [ lldb ];
+   nixCats = {
+     enable = true;
+     packageDefinitions.merge = {
+       nixCats = { ... }: {
+         settings.wrapRc = false;
+       };
+     };
+  };
+}
