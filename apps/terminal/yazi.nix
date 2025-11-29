@@ -1,4 +1,5 @@
-{ ... }: {
+{ pkgs, ... }: {
+  home.packages = with pkgs.yaziPlugins; [ piper ];
   programs.yazi = {
     enable = true;
     settings = {
@@ -19,7 +20,16 @@
         show_hidden = true;
         show_symlink = true;
       };
-
+      plugins = {
+        prepend_previewers = [
+          { name = "*.tar*"; run = ''piper --format=url -- tar tf "$1"''; }
+          { name = "*/"; run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"''; }
+          { name = "*.md"; run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"''; }
+        ];
+        append_previewers = [
+          { name = "*"; run = ''piper -- hexyl --border=none --terminal-width=$w "$1"''; }
+        ];
+      };
       preview = {
         image_filter = "lanczos3";
         image_quality = 90;
