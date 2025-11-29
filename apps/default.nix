@@ -4,7 +4,7 @@
     (import ./desktop { inherit pkgs pkgs-unstable; })
     (import ./media { inherit pkgs; })
     (import ./editors { inherit pkgs-unstable system inputs; })
-    (import ./terminal { inherit pkgs lib; })
+    (import ./terminal { inherit pkgs pkgs-unstable lib; })
     (import ./git.nix { inherit pkgs; })
     (import ./surf.nix { inherit pkgs; })
   ];
