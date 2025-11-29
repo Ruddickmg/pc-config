@@ -1,5 +1,6 @@
 { pkgs, pkgs-unstable, lib, ... }: {
   imports = [
+    (import ./zoxide.nix { inherit pkgs; })
     (import ./zsh.nix { inherit pkgs; })
     (import ./eza.nix { inherit pkgs; })
     (import ./monitor.nix { inherit pkgs; })
