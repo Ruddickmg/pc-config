@@ -24,8 +24,8 @@
         image_filter = "lanczos3";
         image_quality = 90;
         tab_size = 1;
-        max_width = 600;
-        max_height = 900;
+        max_width = 1000;
+        max_height = 1000;
         cache_dir = "";
         ueberzug_scale = 1;
         ueberzug_offset = [

@@ -12,6 +12,8 @@
 
   hardware.enableRedistributableFirmware = true;
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
   # - Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -107,6 +109,9 @@
   # (e.g. man default.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  # use system files for autocomplete
+  environment.pathsToLink = [ "/share/zsh" ];
+  
   environment.variables = {
     SSH_ASKPASS_REQUIRE = "prefer"; # Prefers graphical prompt if available
   };

@@ -206,8 +206,8 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1764386443,
-        "narHash": "sha256-79VxIdd1qDGJN/IgaD5gOjhVyJ+Zl7gUXJnPuP0F6vc=",
+        "lastModified": 1764407847,
+        "narHash": "sha256-Pk36gitrAjqp1cFycSP6Mb80Ft/OGcUz0sBIRPz/x9w=",
         "path": "/home/moon/.config/nvim",
         "type": "path"
       },
