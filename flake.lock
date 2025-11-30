@@ -187,11 +187,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1764264437,
-        "narHash": "sha256-FBBmEDKDBV6d7Y/caGrLtZ+DnIhh2RVMfnuu0Xr5n5M=",
+        "lastModified": 1764424095,
+        "narHash": "sha256-pzXz0jGncgIBpEAKAFoXB8902NIBsrVVyGaM4uOjiN4=",
         "owner": "theCapypara",
         "repo": "nix-jetbrains-plugins",
-        "rev": "7afefae7cdce0c223faa1d3d6d468d1a9aadcd77",
+        "rev": "5f29fcde809a796493f9f23f90b8fe2ee0b8a498",
         "type": "github"
       },
       "original": {
@@ -206,8 +206,8 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1764407847,
-        "narHash": "sha256-Pk36gitrAjqp1cFycSP6Mb80Ft/OGcUz0sBIRPz/x9w=",
+        "lastModified": 1764464881,
+        "narHash": "sha256-gIhOWl3NNLOiHwvzGVOk1w3pczN8cWDdulNbzNQwwc8=",
         "path": "/home/moon/.config/nvim",
         "type": "path"
       },
