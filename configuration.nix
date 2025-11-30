@@ -96,6 +96,11 @@
   services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
+  services.dbus.packages = with pkgs; [ gnome-keyring pkgs.gcr ];
+  services.xserver.displayManager.sessionCommands = ''
+    eval $(gnome-keyring-daemon --start --daemonize --components=ssh,secrets)
+    export SSH_AUTH_SOCK
+  '';
  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
