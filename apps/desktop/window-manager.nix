@@ -85,10 +85,12 @@
 #        "${modifier}+s" = "layout stacking";
         "${modifier}+space" = "focus mode_toggle";
         "${modifier}+v" = "splitv";
-        "${modifier}+w" = "layout tabbed";
+#        "${modifier}+w" = "layout tabbed";
         "${modifier}+d" = "exec fuzzel";
         "${modifier}+Shift+Left" = "workspace prev";
+        "${modifier}+Shift+l" = "workspace prev";
         "${modifier}+Shift+Right" = "workspace next";
+        "${modifier}+Shift+h" = "workspace next";
         "${modifier}+y" = "exec kitty -e yazi";
         "${modifier}+m" = "exec kitty -e btop";
       };
