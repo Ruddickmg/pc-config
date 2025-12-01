@@ -31,7 +31,7 @@
       bars = [{ command = "waybar"; }];
       startup = [
         { command = "kitty"; }
-        { command = "firefox"; }
+#        { command = "firefox"; }
       ];
       keybindings = {
         "${modifier}+0" = "workspace number 10";
@@ -88,9 +88,7 @@
 #        "${modifier}+w" = "layout tabbed";
         "${modifier}+d" = "exec fuzzel";
         "${modifier}+Shift+Left" = "workspace prev";
-        "${modifier}+Shift+l" = "workspace prev";
         "${modifier}+Shift+Right" = "workspace next";
-        "${modifier}+Shift+h" = "workspace next";
         "${modifier}+y" = "exec kitty -e yazi";
         "${modifier}+m" = "exec kitty -e btop";
       };

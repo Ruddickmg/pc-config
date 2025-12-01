@@ -1,6 +1,6 @@
-{ pkgs, inputs, lib, pkgs-unstable, system, ... }:
+{ pkgs, inputs, lib, pkgs-unstable, system, firefox-addons, ... }:
 {
-  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs; })];
+  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs firefox-addons; })];
 
   home.packages = with pkgs; [ jq ];
   home.username = "moon";
