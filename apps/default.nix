@@ -1,4 +1,13 @@
-{ lib, pkgs, pkgs-unstable, system, inputs, firefox-addons, ... }: {
+{
+  lib,
+  pkgs,
+  pkgs-unstable,
+  system,
+  inputs,
+  firefox-addons,
+  ...
+}:
+{
   imports = [
     ./ssh.nix
     (import ./desktop { inherit pkgs pkgs-unstable; })
@@ -8,5 +17,4 @@
     (import ./git.nix { inherit pkgs; })
     (import ./firefox.nix { inherit firefox-addons pkgs-unstable; })
   ];
-  home.packages = with pkgs-unstable; [ lldb ];
 }
