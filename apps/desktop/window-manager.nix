@@ -2,36 +2,36 @@
 #  let
 #    laptop = "eDP-1";
 #  in
-  {
+{
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
     package = null;
     config = rec {
-#      bindswitches = {
-#        "lid:on" = {
-#          reload = true;
-#          locked = true;
-#          action = "output ${laptop} disable";
-#        };
-#        "lid:off" = {
-#          reload = true;
-#          locked = true;
-#          action = "output ${laptop} enable";
-#        };
-#      };
+      #      bindswitches = {
+      #        "lid:on" = {
+      #          reload = true;
+      #          locked = true;
+      #          action = "output ${laptop} disable";
+      #        };
+      #        "lid:off" = {
+      #          reload = true;
+      #          locked = true;
+      #          action = "output ${laptop} enable";
+      #        };
+      #      };
       assigns = {
-        "1" = [{ class = "^Firefox$"; }];
-        "2" = [{ class = "jetbrains-rustrover"; }];
+        "1" = [ { class = "^Firefox$"; } ];
+        "2" = [ { class = "jetbrains-rustrover"; } ];
       };
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
       terminal = "kitty";
       window.titlebar = false;
-      bars = [{ command = "waybar"; }];
+      bars = [ { command = "waybar"; } ];
       startup = [
         { command = "kitty"; }
-#        { command = "firefox"; }
+        #        { command = "firefox"; }
       ];
       keybindings = {
         "${modifier}+0" = "workspace number 10";
@@ -63,9 +63,10 @@
         "${modifier}+Ctrl+Right" = "move right";
         "${modifier}+Ctrl+Up" = "move up";
         "${modifier}+Shift+c" = "reload";
-        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
-        "${modifier}+Shift+h" = "move left";
-        "${modifier}+Shift+j" = "move down";
+        "${modifier}+Shift+e" =
+          "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+        "${modifier}+Shift+h" = "workspace prev";
+        "${modifier}+Shift+j" = "workspace next";
         "${modifier}+Shift+k" = "move up";
         "${modifier}+Shift+l" = "move right";
         "${modifier}+Shift+minus" = "move scratchpad";
@@ -78,14 +79,14 @@
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
-        "${modifier}+k" ="focus up";
+        "${modifier}+k" = "focus up";
         "${modifier}+l" = "focus right";
         "${modifier}+minus" = "scratchpad show";
         "${modifier}+r" = "mode resize";
-#        "${modifier}+s" = "layout stacking";
+        #        "${modifier}+s" = "layout stacking";
         "${modifier}+space" = "focus mode_toggle";
         "${modifier}+v" = "splitv";
-#        "${modifier}+w" = "layout tabbed";
+        #        "${modifier}+w" = "layout tabbed";
         "${modifier}+d" = "exec fuzzel";
         "${modifier}+Shift+Left" = "workspace prev";
         "${modifier}+Shift+Right" = "workspace next";
