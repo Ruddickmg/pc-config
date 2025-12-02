@@ -88,8 +88,8 @@
         "${modifier}+v" = "splitv";
         #        "${modifier}+w" = "layout tabbed";
         "${modifier}+d" = "exec fuzzel";
-        "${modifier}+Shift+Left" = "workspace prev";
-        "${modifier}+Shift+Right" = "workspace next";
+        "${modifier}+Shift+Left" = "move left";
+        "${modifier}+Shift+Right" = "move right";
         "${modifier}+y" = "exec kitty -e yazi";
         "${modifier}+m" = "exec kitty -e btop";
       };

@@ -5,17 +5,20 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   hardware.enableRedistributableFirmware = true;
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   # - Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # - Something to do with nixd formatter
   #  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
@@ -23,7 +26,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -64,7 +67,13 @@
   users.users.moon = {
     isNormalUser = true;
     description = "moon";
-    extraGroups = [ "networkmanager" "wheel" "docker" "video" "audio" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "video"
+      "audio"
+    ];
   };
 
   # Install firefox.
@@ -75,12 +84,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = 
-    (with pkgs; [
+  environment.systemPackages = (
+    with pkgs;
+    [
       docker
       claude-code
       nixd
-    ]);
+    ]
+  );
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -96,12 +107,18 @@
   services.openssh.enable = true;
   services.gnome.gcr-ssh-agent.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
-  services.dbus.packages = with pkgs; [ gnome-keyring pkgs.gcr ];
+  services.dbus.packages = with pkgs; [
+    gnome-keyring
+    pkgs.gcr
+  ];
+  services.gnome.gnome-keyring = {
+    enable = true;
+  };
   services.xserver.displayManager.sessionCommands = ''
     eval $(gnome-keyring-daemon --start --daemonize --components=ssh,secrets)
     export SSH_AUTH_SOCK
   '';
- 
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
