@@ -60,7 +60,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway"; # Or your desired display manager
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway"; # Or your desired display manager
         user = "greeter";
       };
     };
