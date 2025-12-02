@@ -66,9 +66,9 @@
         "${modifier}+Shift+e" =
           "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
         "${modifier}+Shift+h" = "workspace prev";
-        "${modifier}+Shift+j" = "workspace next";
+        "${modifier}+Shift+j" = "move down";
         "${modifier}+Shift+k" = "move up";
-        "${modifier}+Shift+l" = "move right";
+        "${modifier}+Shift+l" = "workspace next";
         "${modifier}+Shift+minus" = "move scratchpad";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+Shift+space" = "floating toggle";
