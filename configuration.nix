@@ -94,7 +94,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gcr-ssh-agent.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
   services.dbus.packages = with pkgs; [ gnome-keyring pkgs.gcr ];
   services.xserver.displayManager.sessionCommands = ''
@@ -118,10 +118,6 @@
 
   # use system files for autocomplete
   environment.pathsToLink = [ "/share/zsh" ];
-  
-  environment.variables = {
-    SSH_ASKPASS_REQUIRE = "prefer"; # Prefers graphical prompt if available
-  };
 
   # Shortcuts
   environment.shellAliases = {
