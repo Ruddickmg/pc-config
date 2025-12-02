@@ -18,7 +18,6 @@
     extraConfig = ''
       Host github.com
         AddKeysToAgent yes
-        UseKeychain yes
         IdentityFile ~/.ssh/github
         IdentitiesOnly yes
     '';
