@@ -11,7 +11,7 @@
 }:
 {
   imports = [
-    ./ssh.nix
+    (import ./ssh.nix { inherit lib; })
     (import ./lspmux.nix { inherit lib pkgs-rust rustToolChain; })
     (import ./desktop { inherit pkgs pkgs-unstable; })
     (import ./media { inherit pkgs; })

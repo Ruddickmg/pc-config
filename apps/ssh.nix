@@ -1,7 +1,8 @@
-{ ... }: {
+{ lib, ... }:
+{
   services.ssh-agent.enable = true;
   programs.ssh = {
-    enable = true;
+    enable = lib.mkForce false;
     enableDefaultConfig = false;
     matchBlocks."*" = {
       forwardAgent = false;

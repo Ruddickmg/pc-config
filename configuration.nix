@@ -114,7 +114,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.gnome.gcr-ssh-agent.enable = true;
-  security.pam.services.gdm.enableGnomeKeyring = true;
+  security.pam.services = {
+    greetd.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
+  };
   services.dbus.packages = with pkgs; [
     gnome-keyring
     pkgs.gcr
