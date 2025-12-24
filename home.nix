@@ -1,11 +1,34 @@
-{ pkgs, inputs, lib, pkgs-unstable, system, firefox-addons, ... }:
 {
-  imports = [(import ./apps { inherit pkgs pkgs-unstable system lib inputs firefox-addons; })];
+  pkgs,
+  inputs,
+  lib,
+  pkgs-unstable,
+  pkgs-rust,
+  system,
+  firefox-addons,
+  rustToolChain,
+  ...
+}:
+{
+  imports = [
+    (import ./apps {
+      inherit
+        pkgs
+        pkgs-unstable
+        system
+        lib
+        inputs
+        firefox-addons
+        rustToolChain
+        pkgs-rust
+        ;
+    })
+  ];
 
   home.packages = with pkgs; [ jq ];
   home.username = "moon";
   home.homeDirectory = "/home/moon";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "vim";
     BROWSER = "firefox";
@@ -20,5 +43,5 @@
       defaultCursor = "Adwaita";
     };
     gtk.enable = true;
-   };
+  };
 }

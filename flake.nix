@@ -14,34 +14,68 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
     stylix = {
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, stylix, ff-addons, ... } @inputs:
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-unstable,
+      rust-overlay,
+      home-manager,
+      stylix,
+      ff-addons,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       firefox-addons = ff-addons.packages."${system}";
       lib = nixpkgs.lib;
       pkgs-unstable = import nixpkgs-unstable {
-        system = system;
+        inherit system;
         config.allowUnfree = true;
       };
-    in {
+      pkgs-rust = import nixpkgs-unstable {
+        inherit system;
+        overlays = [
+          (import rust-overlay)
+        ];
+      };
+      rustToolChain = (
+        pkgs-rust.rust-bin.stable.latest.default.override {
+          extensions = [
+            "rust-src"
+            "cargo"
+            "rustc"
+            "rust-analyzer"
+          ];
+        }
+      );
+    in
+    {
       nixosConfigurations.nixos = lib.nixosSystem {
         modules = [
           ./system
           ./configuration.nix
           home-manager.nixosModules.default
           stylix.nixosModules.stylix
-           {
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.moon = import ./home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs pkgs-unstable system firefox-addons;
+              inherit
+                inputs
+                pkgs-unstable
+                system
+                firefox-addons
+                rustToolChain
+                pkgs-rust
+                ;
             };
           }
         ];

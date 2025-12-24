@@ -63,17 +63,25 @@
   services.libinput.touchpad.middleEmulation = true;
   services.libinput.touchpad.tapping = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.moon = {
-    isNormalUser = true;
-    description = "moon";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "video"
-      "audio"
-    ];
+  # Add groups
+  users = {
+    groups.moon = {
+      name = "moon";
+      members = [ "moon" ];
+    };
+
+    users.moon = {
+      isNormalUser = true;
+      description = "moon";
+      extraGroups = [
+        "moon"
+        "networkmanager"
+        "wheel"
+        "docker"
+        "video"
+        "audio"
+      ];
+    };
   };
 
   # Install firefox.
