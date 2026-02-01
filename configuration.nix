@@ -116,6 +116,7 @@
   services.gnome.gcr-ssh-agent.enable = true;
   security.pam.services = {
     greetd.enableGnomeKeyring = true;
+    greetd-password.enableGnomeKeyring = true;
     login.enableGnomeKeyring = true;
   };
   services.dbus.packages = with pkgs; [
@@ -126,7 +127,7 @@
     enable = true;
   };
   services.xserver.displayManager.sessionCommands = ''
-    eval $(gnome-keyring-daemon --start --daemonize --components=ssh,secrets)
+    eval $(gnome-keyring-daemon --start --daemonize --components=ssh,secrets,keyring,pkcs11)
     export SSH_AUTH_SOCK
   '';
 
@@ -154,5 +155,9 @@
     rebuild = "sudo nixos-rebuild switch --flake ~/Nixos";
     update = "nix flake update --flake ~/Nixos";
     refresh = "update && rebuild";
+  };
+
+  environment.variables = {
+    SSH_ASKPASS_REQUIRE = "prefer";
   };
 }

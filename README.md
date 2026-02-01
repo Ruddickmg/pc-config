@@ -2,3 +2,4 @@
 
 ## TODO
 - get yazi plugins working
+- get moving background working
