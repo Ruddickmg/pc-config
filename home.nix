@@ -31,7 +31,7 @@
   home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "vim";
-    BROWSER = "firefox";
+    BROWSER = "zen";
     TERM = "kitty";
   };
   home.pointerCursor = with pkgs; {

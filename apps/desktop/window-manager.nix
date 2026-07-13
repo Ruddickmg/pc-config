@@ -21,7 +21,7 @@
       #        };
       #      };
       assigns = {
-        "1" = [ { class = "^Firefox$"; } ];
+        "1" = [ { class = "^zen$"; } ];
         "2" = [ { class = "jetbrains-rustrover"; } ];
       };
       defaultWorkspace = "workspace number 1";

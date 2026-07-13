@@ -19,6 +19,6 @@
     (import ./editors { inherit pkgs-unstable system inputs; })
     (import ./terminal { inherit pkgs pkgs-unstable lib inputs system; })
     (import ./git.nix { inherit pkgs; })
-    (import ./firefox.nix { inherit firefox-addons pkgs-unstable; })
+    (import ./zen.nix { inherit firefox-addons pkgs-unstable inputs; })
   ];
 }
