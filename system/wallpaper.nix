@@ -1,0 +1,9 @@
+{
+  awww,
+  ...
+}:
+{
+  environment.systemPackages = [
+    awww
+  ];
+}
