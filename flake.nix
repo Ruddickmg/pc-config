@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
     ff-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,12 +12,12 @@
     nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";
     nixCats.url = "path:/home/moon/.config/nvim";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+      url = "github:nix-community/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -29,6 +30,7 @@
       home-manager,
       stylix,
       ff-addons,
+      awww,
       ...
     }@inputs:
     let
@@ -58,6 +60,7 @@
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
+        specialArgs = { inherit awww; };
         modules = [
           ./system
           ./configuration.nix

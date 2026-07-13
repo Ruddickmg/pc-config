@@ -1,6 +1,7 @@
 {
   pkgs,
   nix-colors,
+  awww,
   ...
 }:
 {
@@ -8,6 +9,7 @@
     ./bluetooth.nix
     ./thunderbolt.nix
     # (import ./lspmux.nix { inherit pkgs config; })
+    (import ./wallpaper.nix { inherit awww; })
     (import ./audio.nix { inherit pkgs; })
     (import ./network.nix { inherit pkgs; })
     (import ./stylix.nix { inherit pkgs nix-colors; })
