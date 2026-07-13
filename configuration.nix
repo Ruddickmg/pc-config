@@ -37,6 +37,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Tailscale VPN
+  services.tailscale.enable = true;
+  networking.firewall.allowedUDPPorts = [ 41641 ];
+
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";
 
