@@ -18,6 +18,8 @@ in
         "browser.compactmode.show" = true;
         "browser.search.defaultenginename" = "Searx";
         "browser.search.order.1" = "Searx";
+        "browser.tabs.allow_transparent_browser" = true;
+        "zen.widget.linux.transparency" = true;
       };
       search = {
         force = true;
@@ -68,6 +70,7 @@ in
           ublock-origin
           darkreader
           vimium
+          transparent-zen
         ];
       };
     };
