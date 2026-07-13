@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 let
   socket_path = "/run/user/1000/keyring/ssh";
 in
@@ -28,5 +28,20 @@ in
 
   home.sessionVariables = {
     SSH_AUTH_SOCK = socket_path;
+  };
+
+  systemd.user.services.gnome-keyring-ssh = {
+    Unit = {
+      Description = "GNOME Keyring SSH Agent";
+      PartOf = "graphical-session.target";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --foreground --components=ssh";
+      Restart = "on-abort";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
   };
 }
