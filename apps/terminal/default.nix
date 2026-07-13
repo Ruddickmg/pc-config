@@ -8,6 +8,7 @@
     (import ./starship.nix { inherit pkgs; })
     (import ./direnv.nix { inherit pkgs; })
     (import ./kitty.nix { inherit pkgs lib; })
+    (import ./ghostty.nix { inherit pkgs; })
     (import ./yazi.nix { inherit pkgs; })
     (import ./herdr.nix { inherit inputs system; })
     ./bash.nix
