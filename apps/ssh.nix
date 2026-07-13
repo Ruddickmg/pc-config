@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  socket_path = "/run/user/1000/keyring/ssh";
+  socket_path = "/run/user/1000/gcr/ssh";
 in
 {
   programs.ssh = {
@@ -34,10 +34,11 @@ in
     Unit = {
       Description = "GNOME Keyring SSH Agent";
       PartOf = "graphical-session.target";
+      Before = [ "gcr-ssh-agent.service" ];
     };
     Service = {
       Type = "simple";
-      ExecStart = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --foreground --components=ssh";
+      ExecStart = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon --start --foreground --components=ssh";
       Restart = "on-abort";
     };
     Install = {

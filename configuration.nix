@@ -113,7 +113,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.gnome.gcr-ssh-agent.enable = false;
   security.pam.services = {
     greetd.enableGnomeKeyring = true;
     greetd-password.enableGnomeKeyring = true;
