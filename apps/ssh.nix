@@ -6,24 +6,30 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
-      forwardAgent = false;
-      addKeysToAgent = "yes";
-      compression = false;
-      serverAliveInterval = 0;
-      serverAliveCountMax = 3;
-      hashKnownHosts = false;
-      userKnownHostsFile = "~/.ssh/known_hosts";
-      controlMaster = "no";
-      controlPath = "~/.ssh/master-%r@%n:%p";
-      controlPersist = "no";
+    matchBlocks = {
+      "*" = {
+        forwardAgent = false;
+        addKeysToAgent = "yes";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
+      "github.com" = {
+        addKeysToAgent = "yes";
+        identityFile = "~/.ssh/github";
+        identitiesOnly = true;
+      };
+      "media-server" = {
+        hostName = "media-server";
+        addKeysToAgent = "yes";
+        identityFile = "~/.ssh/media-server";
+      };
     };
-    extraConfig = ''
-      Host github.com
-        AddKeysToAgent yes
-        IdentityFile ~/.ssh/github
-        IdentitiesOnly yes
-    '';
   };
 
   home.sessionVariables = {
