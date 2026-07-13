@@ -31,7 +31,7 @@
   home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "vim";
-    TERM = "kitty";
+    TERM = "ghostty";
   };
   home.pointerCursor = with pkgs; {
     name = "Adwaita";

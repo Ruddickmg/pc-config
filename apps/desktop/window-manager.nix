@@ -26,11 +26,11 @@
       };
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "ghostty";
       window.titlebar = false;
       bars = [ { command = "waybar"; } ];
       startup = [
-        { command = "kitty"; }
+        { command = "ghostty"; }
         #        { command = "firefox"; }
       ];
       keybindings = {
@@ -46,7 +46,7 @@
         "${modifier}+9" = "workspace number 9";
         "${modifier}+Down" = "focus down";
         "${modifier}+Left" = "focus left";
-        "${modifier}+c" = "exec kitty";
+        "${modifier}+c" = "exec ghostty";
         "${modifier}+Right" = "focus right";
         "${modifier}+Shift+0" = "move container to workspace number 10";
         "${modifier}+Shift+1" = "move container to workspace number 1";
@@ -90,8 +90,8 @@
         "${modifier}+d" = "exec fuzzel";
         "${modifier}+Shift+Left" = "move left";
         "${modifier}+Shift+Right" = "move right";
-        "${modifier}+y" = "exec kitty -e yazi";
-        "${modifier}+m" = "exec kitty -e btop";
+        "${modifier}+y" = "exec ghostty -e yazi";
+        "${modifier}+m" = "exec ghostty -e btop";
       };
       input = {
         "type:touchpad" = {
