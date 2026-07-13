@@ -5,7 +5,7 @@
     enableZshIntegration = true;
     settings = {
       command = "herdr";
-      font-family = "JetBrains Mono Nerd Font";
+      font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
       background-opacity = 0.85;
       background-blur = 20;
@@ -14,7 +14,7 @@
       audible-bell = false;
       confirm-close-surface = false;
       mouse-hide-while-typing = true;
-      theme = "gruvbox-dark";
+      theme = "Gruvbox Dark";
     };
   };
 }
