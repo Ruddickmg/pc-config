@@ -7,6 +7,7 @@ in
 
   programs.zen-browser = {
     enable = true;
+    setAsDefaultBrowser = true;
     profiles."${profile-name}" = {
       id = 0;
       name = profile-name;
