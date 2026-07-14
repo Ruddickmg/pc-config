@@ -29,7 +29,7 @@ in
         "browser.search.order.1" = "Searx";
         "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
-        "zen.theme.gradient.show-custom-colors" = true;
+        "zen.theme.gradient" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       search = {
@@ -84,9 +84,5 @@ in
         ];
       };
     };
-  };
-  stylix.targets.zen-browser = {
-    enable = true;
-    profileNames = [ profile-name ];
   };
 }
