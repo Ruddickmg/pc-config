@@ -2,6 +2,7 @@
   home.packages = with pkgs.yaziPlugins; [ piper ];
   programs.yazi = {
     enable = true;
+    shellWrapperName = "yy";
     settings = {
       opener.play = [
         { run = "vlc $@"; desc = "Open in VLC"; orphan = true; for = "linux"; }

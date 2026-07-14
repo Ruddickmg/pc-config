@@ -20,5 +20,6 @@
     (import ./terminal { inherit pkgs pkgs-unstable lib inputs system; })
     (import ./git.nix { inherit pkgs; })
     (import ./zen.nix { inherit firefox-addons pkgs-unstable inputs; })
+    (import ./deluge.nix { inherit pkgs; })
   ];
 }

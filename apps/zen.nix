@@ -85,8 +85,8 @@ in
       };
     };
   };
-  # stylix.targets.zen-browser = {
-  #   enable = true;
-  #   profileNames = [ profile-name ];
-  # };
+  stylix.targets.zen-browser = {
+    enable = true;
+    profileNames = [ profile-name ];
+  };
 }
