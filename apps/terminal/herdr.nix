@@ -11,6 +11,9 @@
 
       [experimental]
       kitty_graphics = true
+
+      [theme.custom]
+      panel_bg = "reset"
     '';
   };
 }

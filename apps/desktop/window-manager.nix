@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 #  let
 #    laptop = "eDP-1";
 #  in
@@ -51,6 +51,7 @@
       bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
+        { command = "${pkgs.awww}/bin/awww img $HOME/Pictures/wallpaper.gif"; }
         #        { command = "firefox"; }
       ];
       keybindings = {
