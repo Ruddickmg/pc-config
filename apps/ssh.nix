@@ -26,6 +26,7 @@ in
       };
       "media-server" = {
         HostName = "media-server";
+        User = "media-server";
         AddKeysToAgent = "yes";
         IdentityFile = "~/.ssh/media-server";
       };
