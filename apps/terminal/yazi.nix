@@ -1,8 +1,11 @@
 { pkgs, ... }: {
-  home.packages = with pkgs.yaziPlugins; [ piper ];
+  home.packages = [ pkgs.glow ];
   programs.yazi = {
     enable = true;
     shellWrapperName = "yy";
+    plugins = {
+      piper = pkgs.yaziPlugins.piper;
+    };
     settings = {
       opener.play = [
         { run = "vlc $@"; desc = "Open in VLC"; orphan = true; for = "linux"; }
@@ -21,14 +24,14 @@
         show_hidden = true;
         show_symlink = true;
       };
-      plugins = {
+      plugin = {
         prepend_previewers = [
-          { name = "*.tar*"; run = ''piper --format=url -- tar tf "$1"''; }
-          { name = "*/"; run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"''; }
-          { name = "*.md"; run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"''; }
+          { url = "*.tar*"; run = ''piper --format=url -- tar tf "$1"''; }
+          { url = "*/"; run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"''; }
+          { url = "*.md"; run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"''; }
         ];
         append_previewers = [
-          { name = "*"; run = ''piper -- hexyl --border=none --terminal-width=$w "$1"''; }
+          { url = "*"; run = ''piper -- hexyl --border=none --terminal-width=$w "$1"''; }
         ];
       };
       preview = {
