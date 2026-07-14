@@ -102,6 +102,7 @@
       docker
       claude-code
       nixd
+      nixfmt-rfc-style
     ]
   );
 
