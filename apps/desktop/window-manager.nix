@@ -7,6 +7,26 @@
     enable = true;
     wrapperFeatures.gtk = true;
     package = null;
+    checkConfig = false;
+    extraConfig = ''
+      blur enable
+      blur_passes 2
+      blur_radius 5
+      corner_radius 10
+
+      shadows enable
+      shadows_on_csd enable
+      shadow_blur_radius 20
+      shadow_color #0000007F
+
+      for_window [app_id="^zen$"] opacity 0.95
+      for_window [app_id="^zen$"] blur enable
+
+      layer_effects "waybar" {
+        blur enable;
+        corner_radius 10;
+      }
+    '';
     config = rec {
       #      bindswitches = {
       #        "lid:on" = {

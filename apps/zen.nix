@@ -12,6 +12,15 @@ in
       id = 0;
       name = profile-name;
       isDefault = true;
+      userChrome = ''
+        :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+          & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+            & browser[transparent="true"] {
+              background: none !important;
+            }
+          }
+        }
+      '';
       settings = {
         "extensions.autoDisableScopes" = 0;
         "browser.startup.homepage" = "https://searx.aicampground.com";
@@ -20,6 +29,8 @@ in
         "browser.search.order.1" = "Searx";
         "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
+        "zen.theme.gradient.show-custom-colors" = true;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       search = {
         force = true;
@@ -68,15 +79,14 @@ in
         force = true;
         packages = with firefox-addons; [
           ublock-origin
-          darkreader
           vimium
           transparent-zen
         ];
       };
     };
   };
-  stylix.targets.zen-browser = {
-    enable = true;
-    profileNames = [ profile-name ];
-  };
+  # stylix.targets.zen-browser = {
+  #   enable = true;
+  #   profileNames = [ profile-name ];
+  # };
 }

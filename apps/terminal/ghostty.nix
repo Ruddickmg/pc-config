@@ -11,7 +11,7 @@
       background-blur = 20;
       window-padding-x = 10;
       window-padding-y = 10;
-      audible-bell = false;
+      bell = true;
       confirm-close-surface = false;
       mouse-hide-while-typing = true;
       theme = "Gruvbox Dark";
