@@ -81,6 +81,7 @@ in
           ublock-origin
           vimium
           transparent-zen
+          video-downloadhelper
         ];
       };
     };
