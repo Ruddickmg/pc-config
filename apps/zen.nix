@@ -8,6 +8,13 @@ in
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
+    policies = {
+      ExtensionSettings = {
+        "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}" = {
+          default_area = "toolbar";
+        };
+      };
+    };
     profiles."${profile-name}" = {
       id = 0;
       name = profile-name;
