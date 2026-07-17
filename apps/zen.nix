@@ -83,7 +83,50 @@ in
           transparent-zen
           video-downloadhelper
         ];
+        settings = {
+          "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}" = {
+            permissions = [
+              "tabs"
+              "downloads"
+              "webRequest"
+              "webNavigation"
+              "scripting"
+              "declarativeNetRequest"
+              "storage"
+              "notifications"
+              "contextMenus"
+              "unlimitedStorage"
+              "*://*.youtube.com/*"
+              "*://*.vimeo.com/*"
+              "*://*.facebook.com/*"
+              "*://*.instagram.com/*"
+              "*://*.ok.ru/*"
+              "*://*.m.ok.ru/*"
+              "*://*.vk.com/*"
+              "*://*.vk.ru/*"
+              "*://*.vkvideo.ru/*"
+              "*://live.vkvideo.ru/*"
+              "*://*.canva.com/*"
+              "*://*.iq.com/*"
+              "*://*.twitcasting.tv/*"
+              "*://*.bilibili.tv/*"
+              "*://*.bilibili.com/*"
+              "*://*.taiav.com/*"
+              "*://*.osmosis.org/*"
+              "*://*.kick.com/*"
+              "*://*.chaturbate.com/*"
+              "*://*.chaturbate.eu/*"
+              "*://*.chaturbate.global/*"
+              "https://downloadhelper.net/activate*"
+              "https://app.downloadhelper.net/activate*"
+              "https://v10.downloadhelper.net/activate*"
+              "<all_urls>"
+            ];
+          };
+        };
       };
     };
   };
+
+  stylix.targets.zen-browser.enable = false;
 }

@@ -23,8 +23,6 @@
     })
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [ jq ];
   home.username = "moon";
   home.homeDirectory = "/home/moon";

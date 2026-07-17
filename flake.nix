@@ -65,14 +65,13 @@
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
-        specialArgs = { inherit awww; };
+        specialArgs = { inherit awww nur; };
         modules = [
           ./system
           ./configuration.nix
           home-manager.nixosModules.default
           stylix.nixosModules.stylix
           {
-            nixpkgs.overlays = [ nur.overlays.default ];
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.moon = import ./home.nix;

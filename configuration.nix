@@ -2,7 +2,7 @@
 # your system.  Help is available in the default.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, nur, ... }:
 
 {
   imports = [
@@ -93,6 +93,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ nur.overlays.default ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -102,7 +103,7 @@
       docker
       claude-code
       nixd
-      nixfmt-rfc-style
+      nixfmt
     ]
   );
 
