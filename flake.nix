@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    awww.url = "git+https://codeberg.org/LGFae/awww";
     nur.url = "github:nix-community/nur";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -36,7 +35,6 @@
       home-manager,
       stylix,
       nur,
-      awww,
       ...
     }@inputs:
     let
@@ -65,7 +63,7 @@
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
-        specialArgs = { inherit awww nur; };
+        specialArgs = { inherit nur; };
         modules = [
           ./system
           ./configuration.nix

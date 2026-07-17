@@ -1,9 +1,6 @@
-{
-  awww,
-  ...
-}:
+{ pkgs, ... }:
 {
   environment.systemPackages = [
-    awww
+    pkgs.awww
   ];
 }
