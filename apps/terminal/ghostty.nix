@@ -8,7 +8,7 @@
       font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
       background-opacity = 0.85;
-      background-blur = 1;
+      background-blur = 0;
       window-padding-x = 10;
       window-padding-y = 10;
       confirm-close-surface = false;

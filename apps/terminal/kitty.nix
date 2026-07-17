@@ -14,7 +14,7 @@
       mouse_hide_wait = "-1.0";
       window_padding_width = 10;
       background_opacity = "0.85";
-      background_blur = 20;
+      background_blur = 0;
       symbol_map = let mappings = [
         "U+e000-U+e00a"
         "U+ea60-U+ebeb"

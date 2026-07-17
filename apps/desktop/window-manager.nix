@@ -9,9 +9,7 @@
     package = null;
     checkConfig = false;
     extraConfig = ''
-      blur enable
-      blur_passes 2
-      blur_radius 5
+      blur disable
       corner_radius 10
 
       shadows enable
@@ -20,12 +18,6 @@
       shadow_color #0000007F
 
       for_window [app_id="^zen$"] opacity 0.95
-      for_window [app_id="^zen$"] blur enable
-
-      layer_effects "waybar" {
-        blur enable;
-        corner_radius 10;
-      }
     '';
     config = rec {
       #      bindswitches = {
@@ -51,7 +43,7 @@
       bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
-        { command = "${pkgs.awww}/bin/awww img $HOME/Pictures/wallpaper.gif"; }
+        { command = "pkill awww || true; ${pkgs.awww}/bin/awww img $HOME/Pictures/wallpaper.gif"; always = true; }
         #        { command = "firefox"; }
       ];
       keybindings = {
