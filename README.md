@@ -1,5 +1,5 @@
 # My PC configuration
 
 ## TODO
-- get yazi plugins working
-- get moving background working
+- refactor from nixcats to nix-wrapper-modules
+

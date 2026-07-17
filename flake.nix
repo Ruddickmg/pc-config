@@ -20,7 +20,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    herdr.url = "github:ogulcancelik/herdr/v0.7.3";
+    herdr.url = "github:ogulcancelik/herdr";
     rust-overlay.url = "github:oxalica/rust-overlay";
     stylix = {
       url = "github:nix-community/stylix/release-26.05";
