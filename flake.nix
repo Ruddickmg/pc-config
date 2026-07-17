@@ -5,10 +5,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     awww.url = "git+https://codeberg.org/LGFae/awww";
-    ff-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nur.url = "github:nix-community/nur";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,13 +35,12 @@
       rust-overlay,
       home-manager,
       stylix,
-      ff-addons,
+      nur,
       awww,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-      firefox-addons = ff-addons.packages."${system}";
       lib = nixpkgs.lib;
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -76,6 +72,7 @@
           home-manager.nixosModules.default
           stylix.nixosModules.stylix
           {
+            nixpkgs.overlays = [ nur.overlays.default ];
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.moon = import ./home.nix;
@@ -84,7 +81,6 @@
                 inputs
                 pkgs-unstable
                 system
-                firefox-addons
                 rustToolChain
                 pkgs-rust
                 ;

@@ -5,7 +5,6 @@
   pkgs-unstable,
   pkgs-rust,
   system,
-  firefox-addons,
   rustToolChain,
   ...
 }:
@@ -18,7 +17,6 @@
         system
         lib
         inputs
-        firefox-addons
         rustToolChain
         pkgs-rust
         ;

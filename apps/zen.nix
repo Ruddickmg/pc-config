@@ -1,4 +1,4 @@
-{ pkgs-unstable, firefox-addons, inputs, ... }:
+{ pkgs, pkgs-unstable, inputs, ... }:
 let
   profile-name = "moon";
 in
@@ -77,7 +77,7 @@ in
       };
       extensions = {
         force = true;
-        packages = with firefox-addons; [
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           vimium
           transparent-zen
