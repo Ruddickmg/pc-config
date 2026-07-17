@@ -37,6 +37,17 @@ in
         "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
         "zen.theme.gradient" = false;
+        "zen.theme.gradient.show-custom-colors" = true;
+        "zen.view.window.scheme" = 0;
+        "zen.view.compact.enable-at-startup" = true;
+        "zen.ui.migration.compact-mode-button-added" = true;
+        "layout.css.prefers-color-scheme.content-override" = 0;
+        "reader.color_scheme" = "custom";
+        "reader.custom_colors.background" = "#32302f";
+        "reader.custom_colors.foreground" = "#ddc7a1";
+        "reader.custom_colors.selection-highlight" = "#bdae93";
+        "reader.custom_colors.unvisited-links" = "#7daea3";
+        "reader.custom_colors.visited-links" = "#d3869b";
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       search = {
