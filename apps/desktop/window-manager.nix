@@ -42,7 +42,6 @@
       window.titlebar = false;
       bars = [ { command = "waybar"; } ];
       startup = [
-        { command = "for i in $(seq 1 20); do ${pkgs.awww}/bin/awww img /home/moon/Pictures/wallpaper.gif 2>/dev/null && break; sleep 0.5; done"; always = true; }
         { command = "ghostty"; }
       ];
       keybindings = {

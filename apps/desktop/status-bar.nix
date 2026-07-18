@@ -13,7 +13,7 @@
 
         modules-left = [ "sway/workspaces" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "tray" "network" "bluetooth" "pulseaudio" "cpu" "memory" "backlight" "battery" "temperature" "clock" "custom/power" ];
+        modules-right = [ "tray" "network" "bluetooth" "pulseaudio" "backlight" "battery" "cpu" "memory" "temperature" "clock" "custom/power" ];
 
         "sway/workspaces" = {
           format = "{name}";
@@ -69,13 +69,13 @@
         };
 
         "cpu" = {
-          format = "󰍛";
+          format = "󰍛 {usage}%";
           tooltip-format = "{usage}%";
           on-click = "ghostty -e btop";
         };
 
         "memory" = {
-          format = "󰈀";
+          format = "󰈀 {used:0.1f}GiB";
           tooltip-format = "{used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)";
           on-click = "ghostty -e btop";
         };
