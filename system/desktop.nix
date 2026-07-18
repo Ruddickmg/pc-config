@@ -52,12 +52,11 @@
     #media-session.enable = true;
   };
 
-  # /etc/nixos/configuration.nix
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway"; # Or your desired display manager
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
         user = "greeter";
       };
     };

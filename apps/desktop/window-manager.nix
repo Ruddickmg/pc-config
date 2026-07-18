@@ -43,7 +43,7 @@
       bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
-        { command = "systemctl --user start awww-daemon 2>/dev/null; for i in $(seq 1 20); do ${pkgs.awww}/bin/awww img $HOME/Pictures/wallpaper.gif 2>/dev/null && break; sleep 0.5; done"; always = true; }
+        { command = "for i in $(seq 1 20); do ${pkgs.awww}/bin/awww img /home/moon/Pictures/wallpaper.gif 2>/dev/null && break; sleep 0.5; done"; always = true; }
         #        { command = "firefox"; }
       ];
       keybindings = {
