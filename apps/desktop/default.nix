@@ -6,7 +6,8 @@
     (import ./style.nix { inherit pkgs; })
     (import ./monitors.nix { inherit pkgs; })
     (import ./app-launcher.nix { inherit pkgs; })
-    (import ./status-bar.nix { inherit pkgs-unstable; })
+    (import ./status-bar.nix { inherit pkgs pkgs-unstable; })
+    ./power-menu.nix
     ./awww.nix
   ];
 }

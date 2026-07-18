@@ -42,9 +42,8 @@
       window.titlebar = false;
       bars = [ { command = "waybar"; } ];
       startup = [
-        { command = "ghostty"; }
         { command = "for i in $(seq 1 20); do ${pkgs.awww}/bin/awww img /home/moon/Pictures/wallpaper.gif 2>/dev/null && break; sleep 0.5; done"; always = true; }
-        #        { command = "firefox"; }
+        { command = "ghostty"; }
       ];
       keybindings = {
         "${modifier}+0" = "workspace number 10";
@@ -105,6 +104,13 @@
         "${modifier}+Shift+Right" = "move right";
         "${modifier}+y" = "exec ghostty -e yazi";
         "${modifier}+m" = "exec ghostty -e btop";
+
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioMicMute" = "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
       };
       input = {
         "type:touchpad" = {

@@ -1,3 +1,7 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ pulsemixer ];
+  environment.systemPackages = with pkgs; [
+    pulsemixer
+    pavucontrol
+    pamixer
+  ];
 }
