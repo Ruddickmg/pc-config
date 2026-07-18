@@ -15,6 +15,9 @@
       [experimental]
       kitty_graphics = true
 
+      [theme]
+      name = "terminal"
+
       [theme.custom]
       panel_bg = "reset"
     '';
