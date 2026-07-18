@@ -9,6 +9,10 @@
     text = ''
       onboarding = false
 
+      [keys]
+      next_workspace = "prefix+shift+j"
+      previous_workspace = "prefix+shift+k"
+
       [ui]
       hide_tab_bar_when_single_tab = true
 
