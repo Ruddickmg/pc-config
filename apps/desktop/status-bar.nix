@@ -13,7 +13,7 @@
 
         modules-left = [ "sway/workspaces" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "tray" "network" "bluetooth" "pulseaudio" "backlight" "battery" "cpu" "memory" "temperature" "clock" "custom/power" ];
+        modules-right = [ "tray" "network" "bluetooth" "pulseaudio" "cpu" "memory" "temperature" "backlight" "battery" "clock" "custom/power" ];
 
         "sway/workspaces" = {
           format = "{name}";
@@ -30,35 +30,38 @@
         };
 
         "network" = {
-          format-wifi = "󰤨";
-          format-ethernet = "󰈀";
-          format-disconnected = "󰤭";
-          format-linked = "󰈀";
+          format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+          format = "{icon}";
+          format-wifi = "{icon}";
+          format-ethernet = "<span size='11500'>󰈀</span>";
+          format-disconnected = "<span size='11500'>󰤭</span>";
+          format-linked = "<span size='11500'>󰈀</span>";
           tooltip-format-wifi = "{essid} ({signalStrength}%) 󰤨\n{ipaddr}/{cidr}";
           tooltip-format-ethernet = "{ifname}: {ipaddr}/{cidr}";
           tooltip-format = "{ifname}: {ipaddr}/{cidr}";
           tooltip-format-disconnected = "Disconnected";
-          on-click = "${pkgs.networkmanager}/bin/nmtui";
+          interval = 3;
+          on-click = "${pkgs.networkmanager_dmenu}/bin/networkmanager_dmenu";
         };
 
         "bluetooth" = {
-          format-on = "󰂯";
-          format-off = "󰂲";
-          format-disabled = "󰂲";
-          format-connected = "󰂱";
-          format-connected-battery = "󰂱 {device_battery_percentage}%";
+          format = "<span size='11500'>󰂯</span>";
+          format-off = "<span size='11500'>󰂲</span>";
+          format-disabled = "<span size='11500'>󰂲</span>";
+          format-connected = "<span size='11500'>󰂱</span>";
+          format-connected-battery = "<span size='11500'>󰂱</span> {device_battery_percentage}%";
           tooltip-format = "{num_connections} device connected\n{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}";
-          on-click = "${pkgs.bluetuith}/bin/bluetuith";
+          on-click = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
         };
 
         "pulseaudio" = {
-          format = "{icon}";
-          format-bluetooth = "{icon}";
-          format-bluetooth-muted = "󰝟";
-          format-muted = "󰝟";
-          format-source = "󰍬";
-          format-source-muted = "󰍭";
+          format = "<span size='11500'>{icon}</span>";
+          format-bluetooth = "<span size='11500'>{icon}</span>";
+          format-bluetooth-muted = "<span size='11500'>󰝟</span>";
+          format-muted = "<span size='11500'>󰝟</span>";
+          format-source = "<span size='11500'>󰍬</span>";
+          format-source-muted = "<span size='11500'>󰍭</span>";
           format-icons = {
             default = [ "󰕿" "󰖀" "󰕾" ];
           };
@@ -69,13 +72,13 @@
         };
 
         "cpu" = {
-          format = "󰍛 {usage}%";
+          format = "<span size='11500'>󰍛</span> {usage}%";
           tooltip-format = "{usage}%";
           on-click = "ghostty -e btop";
         };
 
         "memory" = {
-          format = "󰈀 {used:0.1f}GiB";
+          format = "<span size='11500'>󰈀</span> {used:0.1f}GiB";
           tooltip-format = "{used:0.1f}GiB / {total:0.1f}GiB ({percentage}%)";
           on-click = "ghostty -e btop";
         };
@@ -96,9 +99,9 @@
             critical = 15;
           };
           format = "{icon}";
-          format-charging = "󰂄";
-          format-plugged = "󰂄";
-          format-full = "󰁹";
+          format-charging = "<span size='11500'>󰂄</span>";
+          format-plugged = "<span size='11500'>󰂄</span>";
+          format-full = "<span size='11500'>󰁹</span>";
           format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           tooltip-format = "{timeTo}\n{capacity}%";
         };

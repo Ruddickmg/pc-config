@@ -7,6 +7,7 @@
     (import ./monitors.nix { inherit pkgs; })
     (import ./app-launcher.nix { inherit pkgs; })
     (import ./status-bar.nix { inherit pkgs pkgs-unstable; })
+    ./rofi.nix
     ./power-menu.nix
     ./awww.nix
   ];

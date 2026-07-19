@@ -1,0 +1,152 @@
+configuration {
+    font:                           "JetBrainsMono Nerd Font 11";
+    show-icons:                     true;
+    icon-theme:                     "Papirus";
+    disable-history:                false;
+    click-to-exit:                  true;
+    hide-scrollbar:                 true;
+    scroll-method:                  0;
+    threads:                        0;
+}
+
+* {
+    bg0:          #282828;
+    bg1:          #32302f;
+    bg2:          #3c3836;
+    bg3:          #504945;
+    grey0:        #7c6f64;
+    fg0:          #d4be98;
+    red:          #ea6962;
+    green:        #a9b665;
+    yellow:       #d8a657;
+    blue:         #7daea3;
+    orange:       #e78a4e;
+
+    background-color:               transparent;
+    text-color:                     @fg0;
+}
+
+window {
+    transparency:                   "real";
+    background-color:               @bg0;
+    text-color:                     @fg0;
+    border:                         1px;
+    border-color:                   @bg3;
+    border-radius:                  0px 0px 12px 12px;
+    width:                          380px;
+    location:                       north;
+    anchor:                         north;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+inputbar {
+    children:                       [ entry ];
+    background-color:               @bg1;
+    border:                         0px 0px 1px 0px;
+    border-color:                   @bg3;
+    border-radius:                  0px;
+    padding:                        10px 12px;
+    margin:                         0px;
+}
+
+entry {
+    background-color:               transparent;
+    text-color:                     @fg0;
+    placeholder-color:              @grey0;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "  Search networks...";
+    blink:                          true;
+    font:                           "JetBrainsMono Nerd Font 11";
+}
+
+prompt {
+    enabled:                        false;
+}
+
+case-indicator {
+    background-color:               transparent;
+    text-color:                     @fg0;
+    spacing:                        0;
+}
+
+mainbox {
+    background-color:               @bg0;
+    children:                       [ listview ];
+    spacing:                        4px;
+    padding:                        6px;
+}
+
+listview {
+    background-color:               @bg0;
+    columns:                        1;
+    lines:                          8;
+    spacing:                        2px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+    scrollbar:                      false;
+    fixed-height:                   false;
+}
+
+element {
+    background-color:               @bg0;
+    text-color:                     @fg0;
+    orientation:                    horizontal;
+    border-radius:                  6px;
+    padding:                        8px 10px;
+    cursor:                         pointer;
+}
+
+element-icon {
+    background-color:               transparent;
+    size:                           24px;
+    margin:                         0px 8px 0px 4px;
+    vertical-align:                 0.5;
+}
+
+element-text {
+    background-color:               transparent;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         2px 0px 2px 2px;
+}
+
+element selected {
+    background-color:               @bg2;
+    text-color:                     @yellow;
+    border-radius:                  6px;
+}
+
+element selected.normal {
+    background-color:               @bg2;
+    text-color:                     @yellow;
+}
+
+element alternate.normal {
+    background-color:               @bg0;
+}
+
+element.normal.urgent,
+element.alternate.urgent {
+    background-color:               @bg0;
+    text-color:                     @green;
+}
+
+element.selected.urgent {
+    background-color:               @bg2;
+    text-color:                     @green;
+}
+
+element.normal.active,
+element.alternate.active {
+    background-color:               @bg0;
+    text-color:                     @fg0;
+}
+
+element.selected.active {
+    background-color:               @bg2;
+    text-color:                     @yellow;
+}

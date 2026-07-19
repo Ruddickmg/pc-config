@@ -3,9 +3,10 @@
   stylix = {
     targets = {
       yazi.enable = true;
-      waybar.enable = true;
-      sway.enable = true;
+      waybar.enable = false;
+      sway.enable = false;
       gtk.enable = true;
+      rofi.enable = false;
     };
     autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-soft.yaml";
@@ -20,52 +21,97 @@
 
   programs.waybar.style = ''
     * {
-      font-family: "JetBrainsMono Nerd Font", sans-serif;
-      font-size: 13pt;
+      font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+      font-size: 13px;
       min-height: 0;
+      border: none;
     }
 
     window#waybar {
-      background-color: alpha(@base00, 0.90);
+      background-color: transparent;
       color: @base05;
+    }
+
+    /* ── Workspaces ────────────────────────────────────────────── */
+
+    #workspaces {
+      padding: 0 4px;
+      margin: 3px 4px;
+      border-radius: 10px;
+      background-color: alpha(@base00, 0.8);
     }
 
     #workspaces button {
       padding: 0 8px;
-      color: @base03;
-      border-bottom: 3px solid transparent;
-      min-width: 20px;
+      margin: 2px 1px;
+      color: @base04;
+      border-radius: 8px;
+      min-width: 12px;
+      transition: all 250ms ease;
+    }
+
+    #workspaces button:hover {
+      background-color: alpha(@base05, 0.15);
+      color: @base05;
     }
 
     #workspaces button.focused,
     #workspaces button.active {
-      color: @base05;
-      border-bottom: 3px solid @base0D;
+      background-color: @base0D;
+      color: @base00;
+      font-weight: bold;
     }
 
     #workspaces button.urgent {
-      color: @base00;
       background-color: @base08;
-      border-bottom: 3px solid @base08;
+      color: @base00;
     }
 
-    #workspaces button:hover {
-      background: alpha(@base02, 0.6);
-    }
+    /* ── Window title ──────────────────────────────────────────── */
 
     #window {
-      padding: 0 10px;
+      padding: 0 12px;
       color: @base04;
       font-style: italic;
     }
 
-    #tray {
-      padding: 0 8px;
-      color: @base05;
+    /* ── Module group containers (pill groups) ─────────────────── */
+
+    #tray,
+    #network,
+    #bluetooth,
+    #pulseaudio,
+    #cpu,
+    #memory,
+    #temperature,
+    #backlight,
+    #battery,
+    #clock,
+    #custom-power {
+      padding: 0 10px;
+      margin: 3px 1px;
+      border-radius: 10px;
+      background-color: alpha(@base00, 0.8);
     }
 
-    #network {
+    /* ── Tray ──────────────────────────────────────────────────── */
+
+    #tray {
+      margin-left: 4px;
       padding: 0 8px;
+    }
+
+    #tray > .passive {
+      -gtk-icon-effect: dim;
+    }
+
+    #tray > .needs-attention {
+      -gtk-icon-effect: highlight;
+    }
+
+    /* ── Network ───────────────────────────────────────────────── */
+
+    #network {
       color: @base0D;
     }
 
@@ -73,8 +119,13 @@
       color: @base08;
     }
 
+    #network.linked {
+      color: @base0A;
+    }
+
+    /* ── Bluetooth ─────────────────────────────────────────────── */
+
     #bluetooth {
-      padding: 0 8px;
       color: @base0D;
     }
 
@@ -82,32 +133,53 @@
       color: @base03;
     }
 
+    #bluetooth.connected {
+      color: @base0B;
+    }
+
+    /* ── Pulseaudio ────────────────────────────────────────────── */
+
     #pulseaudio {
-      padding: 0 8px;
       color: @base0D;
+      margin-right: 4px;
     }
 
     #pulseaudio.muted {
       color: @base03;
     }
 
+    /* ── CPU ───────────────────────────────────────────────────── */
+
     #cpu {
-      padding: 0 8px;
       color: @base0C;
     }
+
+    /* ── Memory ────────────────────────────────────────────────── */
 
     #memory {
-      padding: 0 8px;
       color: @base0C;
     }
 
+    /* ── Temperature ───────────────────────────────────────────── */
+
+    #temperature {
+      color: @base0C;
+      margin-right: 4px;
+    }
+
+    #temperature.critical {
+      color: @base08;
+    }
+
+    /* ── Backlight ─────────────────────────────────────────────── */
+
     #backlight {
-      padding: 0 8px;
       color: @base0A;
     }
 
+    /* ── Battery ───────────────────────────────────────────────── */
+
     #battery {
-      padding: 0 8px;
       color: @base0B;
     }
 
@@ -127,30 +199,39 @@
       color: @base08;
     }
 
-    #temperature {
-      padding: 0 8px;
-      color: @base0C;
-    }
-
-    #temperature.critical {
-      color: @base08;
-    }
+    /* ── Clock ─────────────────────────────────────────────────── */
 
     #clock {
-      padding: 0 10px;
       color: @base05;
       font-weight: bold;
+      font-size: 13px;
+      margin-right: 4px;
     }
 
+    /* ── Power button ──────────────────────────────────────────── */
+
     #custom-power {
-      padding: 0 10px;
       color: @base08;
-      font-size: 16pt;
+      font-size: 16px;
+      margin-right: 4px;
+      padding: 0 12px;
     }
 
     #custom-power:hover {
       background-color: @base08;
       color: @base00;
+    }
+
+    /* ── Tooltips ──────────────────────────────────────────────── */
+
+    tooltip {
+      background: @base00;
+      border: 1px solid @base03;
+      border-radius: 8px;
+    }
+
+    tooltip label {
+      color: @base05;
     }
   '';
 }

@@ -9,8 +9,17 @@
     package = null;
     checkConfig = false;
     extraConfig = ''
+      default_border none
+      default_floating_border none
       blur disable
-      corner_radius 10
+      corner_radius 30
+      gaps inner 15
+
+      client.focused          #00000000 #00000000 #00000000 #00000000 #00000000
+      client.focused_inactive #00000000 #00000000 #00000000 #00000000 #00000000
+      client.unfocused        #00000000 #00000000 #00000000 #00000000 #00000000
+      client.urgent           #00000000 #00000000 #00000000 #00000000 #00000000
+      client.placeholder      #00000000 #00000000 #00000000 #00000000 #00000000
 
       shadows enable
       shadows_on_csd enable
@@ -40,6 +49,7 @@
       modifier = "Mod4";
       terminal = "ghostty";
       window.titlebar = false;
+      window.border = 0;
       bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
