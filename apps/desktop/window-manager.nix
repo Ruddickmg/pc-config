@@ -9,17 +9,17 @@
     package = null;
     checkConfig = false;
     extraConfig = ''
-      default_border none
-      default_floating_border none
+      default_border pixel 1
+      default_floating_border pixel 1
       blur disable
-      corner_radius 30
-      gaps inner 15
+      corner_radius 15
+      gaps inner 5
 
-      client.focused          #00000000 #00000000 #00000000 #00000000 #00000000
-      client.focused_inactive #00000000 #00000000 #00000000 #00000000 #00000000
-      client.unfocused        #00000000 #00000000 #00000000 #00000000 #00000000
-      client.urgent           #00000000 #00000000 #00000000 #00000000 #00000000
-      client.placeholder      #00000000 #00000000 #00000000 #00000000 #00000000
+      client.focused          #01010101 #01010101 #01010101 #01010101 #01010101
+      client.focused_inactive #01010101 #01010101 #01010101 #01010101 #01010101
+      client.unfocused        #01010101 #01010101 #01010101 #01010101 #01010101
+      client.urgent           #01010101 #01010101 #01010101 #01010101 #01010101
+      client.placeholder      #01010101 #01010101 #01010101 #01010101 #01010101
 
       shadows enable
       shadows_on_csd enable
@@ -49,7 +49,6 @@
       modifier = "Mod4";
       terminal = "ghostty";
       window.titlebar = false;
-      window.border = 0;
       bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
