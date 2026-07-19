@@ -15,6 +15,9 @@
 
       [ui]
       hide_tab_bar_when_single_tab = true
+      pane_borders = false
+      pane_gaps = false
+      accent = "#fe8019"
 
       [experimental]
       kitty_graphics = true
@@ -24,6 +27,7 @@
 
       [theme.custom]
       panel_bg = "reset"
+      overlay0 = "transparent"
     '';
   };
 }
