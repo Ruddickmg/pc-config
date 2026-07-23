@@ -3,9 +3,6 @@
     git
     lazygit
     gnupg
-    (writeShellScriptBin "gpg-batch" ''
-      exec ${gnupg}/bin/gpg --batch --quiet "$@"
-    '')
   ];
 
   programs.git = {
@@ -18,11 +15,11 @@
       };
       commit.gpgSign = true;
       gpg.format = "openpgp";
-      gpg.program = "gpg-batch";
     };
   };
 
   programs.lazygit = {
     enable = true;
+    settings.git.overrideGpg = true;
   };
 }
