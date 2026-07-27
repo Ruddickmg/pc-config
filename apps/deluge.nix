@@ -6,9 +6,18 @@ let
     url = "https://github.com/zakkarry/deluge-ltconfig/releases/download/v2.1.1/ltConfig-v2.1.1.egg";
     sha256 = "0g71m5qzqil1ksx5bp4vqrh5yl46jp985693b63vhjzzp6bl3rcn";
   };
+  deluge-wrapped = pkgs.symlinkJoin {
+    name = "deluge-wrapped";
+    paths = [ pkgs.deluge ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/deluge --set GDK_BACKEND x11
+      wrapProgram $out/bin/deluge-gtk --set GDK_BACKEND x11
+    '';
+  };
 in
 {
-  home.packages = [ pkgs.deluge ];
+  home.packages = [ deluge-wrapped ];
 
   xdg.configFile."deluge/auth" = {
     force = true;
