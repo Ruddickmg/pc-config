@@ -1,6 +1,7 @@
 { pkgs, pkgs-unstable, ... }: {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     package = pkgs-unstable.waybar;
     settings = {
       mainBar = {

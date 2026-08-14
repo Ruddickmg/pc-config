@@ -49,7 +49,6 @@
       modifier = "Mod4";
       terminal = "ghostty";
       window.titlebar = false;
-      bars = [ { command = "waybar"; } ];
       startup = [
         { command = "ghostty"; }
       ];
