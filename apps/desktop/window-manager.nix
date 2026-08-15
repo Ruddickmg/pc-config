@@ -45,6 +45,7 @@
         "1" = [ { class = "^zen$"; } ];
         "2" = [ { class = "jetbrains-rustrover"; } ];
       };
+      bars = [ ];
       defaultWorkspace = "workspace number 1";
       modifier = "Mod4";
       terminal = "ghostty";
