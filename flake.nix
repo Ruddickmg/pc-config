@@ -7,7 +7,7 @@
     nur.url = "github:nix-community/nur";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.home-manager.follows = "home-manager";
     };
     nix-jetbrains-plugins.url = "github:theCapypara/nix-jetbrains-plugins";

@@ -11,6 +11,7 @@
     (import ./ghostty.nix { inherit pkgs; })
     (import ./yazi.nix { inherit pkgs; })
     (import ./herdr.nix { inherit inputs system; })
+    (import ./atuin.nix { })
     ./bash.nix
   ];
 }

@@ -97,7 +97,7 @@ in
         force = true;
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
-          vimium
+          surfingkeys
           transparent-zen
           video-downloadhelper
         ];
@@ -139,6 +139,9 @@ in
               "https://app.downloadhelper.net/activate*"
               "https://v10.downloadhelper.net/activate*"
               "<all_urls>"
+              "*://*.javrank.com/*"
+              "*://*.91porna.com/*"
+              "*://*.9n6gyt.umydsfs.cc/*"
             ];
           };
         };
