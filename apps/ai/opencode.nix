@@ -11,7 +11,7 @@
   programs.opencode.settings = {
     autoshare = false;
     autoupdate = true;
-    model = "opencode/big-pickle";
+    # model = "opencode/big-pickle";
     permission = {
       bash = {
         "git *" = "deny";

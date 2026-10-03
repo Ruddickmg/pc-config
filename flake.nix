@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     herdr.url = "github:ogulcancelik/herdr";
+    tuios = {
+      url = "github:Gaurav-Gosain/tuios/v0.8.0";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     rust-overlay.url = "github:oxalica/rust-overlay";
     stylix = {
       url = "github:nix-community/stylix/release-26.05";

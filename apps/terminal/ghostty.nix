@@ -4,7 +4,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      command = "herdr";
+      command = "tuios";
       font-family = "JetBrainsMono Nerd Font";
       font-size = 13;
       background-opacity = 0.85;
