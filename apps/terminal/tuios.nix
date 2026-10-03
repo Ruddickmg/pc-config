@@ -20,6 +20,9 @@
       [appearance.sidebar]
       enabled = false
 
+      [appearance.scrollbar]
+      style = "thin"
+
       [notifications.agent]
       sound = true
 
