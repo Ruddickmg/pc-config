@@ -16,6 +16,7 @@
       zen_mode = "always"
       hide_window_buttons = true
       shared_borders = true
+      dockbar_position = "hidden"
 
       [appearance.sidebar]
       enabled = false
