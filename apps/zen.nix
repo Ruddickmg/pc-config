@@ -135,6 +135,7 @@ in
               "*://*.chaturbate.com/*"
               "*://*.chaturbate.eu/*"
               "*://*.chaturbate.global/*"
+              "https://downloadhelper.net/premium*"
               "https://downloadhelper.net/activate*"
               "https://app.downloadhelper.net/activate*"
               "https://v10.downloadhelper.net/activate*"
