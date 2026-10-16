@@ -5,16 +5,30 @@
     shellWrapperName = "yy";
     plugins = {
       piper = pkgs.yaziPlugins.piper;
-      mount = pkgs.yaziPlugins.mount;
+      mount = pkgs.fetchFromGitHub {
+        owner = "PHONE1X";
+        repo = "lsblk-mount.yazi";
+        rev = "master";
+        hash = "sha256-HjIDBe2lG9w+tRalfdYIwOK2kRuVPFDPq37HqEdM7UQ=";
+      };
     };
     keymap = {
-      manager.prepend_keymap = [
-        { on = "M"; run = "plugin mount"; desc = "Mount partitions"; }
+      mgr.prepend_keymap = [
+        {
+          on = "M";
+          run = "plugin mount";
+          desc = "Mount partitions";
+        }
       ];
     };
     settings = {
       opener.play = [
-        { run = "vlc $@"; desc = "Open in VLC"; orphan = true; for = "linux"; }
+        {
+          run = "vlc \"$@\"";
+          desc = "Open in VLC";
+          orphan = true;
+          for = "linux";
+        }
       ];
       manager = {
         ratio = [
@@ -32,12 +46,24 @@
       };
       plugin = {
         prepend_previewers = [
-          { url = "*.tar*"; run = ''piper --format=url -- tar tf "$1"''; }
-          { url = "*/"; run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"''; }
-          { url = "*.md"; run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"''; }
+          {
+            url = "*.tar*";
+            run = ''piper --format=url -- tar tf "$1"'';
+          }
+          {
+            url = "*/";
+            run = ''piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"'';
+          }
+          {
+            url = "*.md";
+            run = ''piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'';
+          }
         ];
         append_previewers = [
-          { url = "*"; run = ''piper -- hexyl --border=none --terminal-width=$w "$1"''; }
+          {
+            url = "*";
+            run = ''piper -- hexyl --border=none --terminal-width=$w "$1"'';
+          }
         ];
       };
       preview = {
