@@ -21,8 +21,7 @@
     };
     herdr.url = "github:ogulcancelik/herdr";
     tuios = {
-      url = "github:Gaurav-Gosain/tuios/v0.8.0";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:Gaurav-Gosain/tuios/v0.10.0";
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
     stylix = {

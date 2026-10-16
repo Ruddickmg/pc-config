@@ -38,6 +38,9 @@
       # j/k were taken by these; moved to their shifted variants
       prefix_jump_notif = [ "J" ]
       prefix_keybinds = [ "K" ]
+
+      [hosts.media-server]
+      addr = "media-server"
     '';
   };
 }
