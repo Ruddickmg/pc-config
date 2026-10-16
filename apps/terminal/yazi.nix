@@ -7,6 +7,11 @@
       piper = pkgs.yaziPlugins.piper;
       mount = pkgs.yaziPlugins.mount;
     };
+    keymap = {
+      manager.prepend_keymap = [
+        { on = "M"; run = "plugin mount"; desc = "Mount partitions"; }
+      ];
+    };
     settings = {
       opener.play = [
         { run = "vlc $@"; desc = "Open in VLC"; orphan = true; for = "linux"; }
