@@ -5,6 +5,7 @@
     shellWrapperName = "yy";
     plugins = {
       piper = pkgs.yaziPlugins.piper;
+      mount = pkgs.yaziPlugins.mount;
     };
     settings = {
       opener.play = [
