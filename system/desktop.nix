@@ -17,6 +17,24 @@
   # needed for sway home manager configuration
   security.polkit.enable = true;
 
+  # Allow active local admin users to mount/unmount/eject drives without a prompt
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      var actions = [
+        "org.freedesktop.udisks2.filesystem-mount",
+        "org.freedesktop.udisks2.filesystem-mount-system",
+        "org.freedesktop.udisks2.filesystem-unmount-others",
+        "org.freedesktop.udisks2.power-off-drive",
+        "org.freedesktop.udisks2.eject-media"
+      ];
+      if (actions.indexOf(action.id) !== -1 &&
+          subject.isInGroup("wheel") &&
+          subject.active && subject.local) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
   # enable Sway window manager
   programs.sway = {
     enable = true;

@@ -11,5 +11,7 @@
     ./power-menu.nix
     ./awww.nix
   ];
+
+  services.polkit-gnome.enable = true;
 }
 
