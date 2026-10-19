@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
   home.packages = with pkgs; [
     git
     lazygit
     gnupg
+    pkgs-unstable.worktrunk
   ];
 
   programs.git = {

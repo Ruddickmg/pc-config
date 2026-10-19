@@ -20,5 +20,8 @@
 	rm -f -- "$tmp"
       }
     '';
+    initContent = ''
+      (( $+commands[wt] )) && eval "$(wt config shell init zsh)"
+    '';
   };
 }

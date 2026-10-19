@@ -95,6 +95,13 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ nur.overlays.default ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  nix.optimise.automatic = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (
