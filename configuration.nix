@@ -9,7 +9,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
-
   hardware.enableRedistributableFirmware = true;
 
   programs.zsh.enable = true;
@@ -20,12 +19,18 @@
     "flakes"
   ];
 
+  # Run the latest stable Nix release from nixpkgs.
+  nix.package = pkgs.nixVersions.latest;
+
   # - Something to do with nixd formatter
   #  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Latest LTS kernel (currently 6.18; nixpkgs' default kernel is the newest LTS).
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
