@@ -32,6 +32,15 @@
   # Latest LTS kernel (currently 6.18; nixpkgs' default kernel is the newest LTS).
   boot.kernelPackages = pkgs.linuxPackages;
 
+  # Compressed in-RAM swap. Runs at a higher priority than the disk swap
+  # (10, see disko.nix), so zram fills first and the disk swap only takes
+  # overflow - and the hibernation image, via boot.resumeDevice.
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50; # half of RAM (16G at 32G), zstd-compressed
+    priority = 100;
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
