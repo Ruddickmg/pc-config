@@ -373,8 +373,8 @@
         "plugins-treesitter-textobjects": "plugins-treesitter-textobjects"
       },
       "locked": {
-        "lastModified": 1794126960,
-        "narHash": "sha256-vChi3EBItmjKlUSh1FAx6Ou3j8RWrViRalRKal5c6hw=",
+        "lastModified": 1794376352,
+        "narHash": "sha256-RnEzm0GXHq2l2+7hpbOr0uoUwoCfbAWK251GWqrNYi4=",
         "path": "/home/moon/.config/nvim",
         "type": "path"
       },
@@ -516,11 +516,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1794370151,
-        "narHash": "sha256-wEwIYtPtJny8andPPzwbQO1K0N1YyPZSS7oD6BvB2GU=",
+        "lastModified": 1794374369,
+        "narHash": "sha256-Wsl+BiOrMmMrfESDdLmKkztsKL07zYIqqoFK7uvKF0A=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "a7f585cfde19f49788cff09cb94e4831cbf482c4",
+        "rev": "38e7f29a299384c11701a97aefa564757bd2bc6b",
         "type": "github"
       },
       "original": {
