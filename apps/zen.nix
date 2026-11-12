@@ -143,6 +143,8 @@ in
               "*://*.javrank.com/*"
               "*://*.91porna.com/*"
               "*://*.9n6gyt.umydsfs.cc/*"
+              "*://*.sociofyme.com/*"
+              "*://supjav.com/*"
             ];
           };
         };
