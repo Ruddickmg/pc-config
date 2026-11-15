@@ -28,6 +28,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.systemd.enable = true;
 
   # Latest LTS kernel (currently 6.18; nixpkgs' default kernel is the newest LTS).
   boot.kernelPackages = pkgs.linuxPackages;
