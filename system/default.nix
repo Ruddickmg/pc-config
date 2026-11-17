@@ -15,5 +15,6 @@
     (import ./desktop.nix { inherit pkgs; })
     (import ./icons.nix { inherit pkgs; })
     ./keyboard.nix
+    ./nas.nix
   ];
 }
