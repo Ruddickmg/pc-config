@@ -25,7 +25,6 @@
     ];
   };
 
-  # Create the mount point early, then expose it at ~/nas.
   systemd.tmpfiles.settings."10-nas" = {
     "/mnt/nas".d = {
       mode = "0755";
@@ -37,7 +36,7 @@
       user = "root";
       group = "root";
     };
-    "/home/moon/nas".L = {
+    "/home/moon/Library".L = {
       argument = "/mnt/nas/private";
       user = "moon";
       group = "moon";
