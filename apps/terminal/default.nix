@@ -9,7 +9,7 @@
     (import ./starship.nix { inherit pkgs; })
     (import ./direnv.nix { inherit pkgs; })
     (import ./ghostty.nix { inherit pkgs; })
-    (import ./yazi.nix { inherit pkgs; })
+    ./yazi.nix
     (import ./herdr.nix { inherit inputs system; })
     (import ./tuios.nix { inherit inputs system; })
     (import ./atuin.nix { })

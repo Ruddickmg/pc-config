@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.packages = [ pkgs.glow ];
   programs.yazi = {
     enable = true;
@@ -190,5 +190,15 @@
         bizarre_retry = 5;
       };
     };
+    # Stylix owns the rest of theme.toml; these extend its [icon] section.
+    theme.icon.prepend_dirs = let
+      # Match the color Stylix uses for its other user-directory icons.
+      fg = config.lib.stylix.colors.withHashtag.cyan;
+    in [
+      # Network share folder (nf-md-folder_network)
+      { name = "Shared"; text = "󰡰"; inherit fg; }
+      # Generic media folder (nf-oct-file_media)
+      { name = "Media"; text = ""; inherit fg; }
+    ];
   };
 }
