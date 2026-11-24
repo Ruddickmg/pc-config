@@ -4,8 +4,8 @@
 
 {
   pkgs,
+  pkgs-unstable,
   nur,
-  tailscaleUnstable,
   ...
 }:
 
@@ -60,9 +60,19 @@
   # Tailscale VPN — follow nixpkgs-unstable for automatic version updates.
   services.tailscale = {
     enable = true;
-    package = tailscaleUnstable;
+    package = pkgs-unstable.tailscale;
   };
   networking.firewall.allowedUDPPorts = [ 41641 ];
+
+  # Flake inputs use git+ssh, so root needs a trusted host key when
+  # nixos-rebuild evaluates them outside the user's SSH config.
+  programs.ssh.knownHosts.github = {
+    hostNames = [
+      "github.com"
+      "ssh.github.com"
+    ];
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+  };
 
   # Set your time zone.
   time.timeZone = "Pacific/Honolulu";
@@ -176,7 +186,9 @@
   environment.shellAliases = {
     audio = "pulsemixer";
     metrics = "btop";
-    rebuild = "sudo nixos-rebuild switch --flake ~/Nixos";
+    # Run evaluation as the invoking user so git+ssh flake inputs can use that
+    # user's SSH agent; `--sudo` only prefixes the privileged activation steps.
+    rebuild = "nixos-rebuild switch --flake ~/Nixos --sudo";
     update = "nix flake update --flake ~/Nixos";
     refresh = "update && rebuild";
   };
