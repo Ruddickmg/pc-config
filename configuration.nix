@@ -2,7 +2,12 @@
 # your system.  Help is available in the default.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, nur, ... }:
+{
+  pkgs,
+  nur,
+  tailscaleUnstable,
+  ...
+}:
 
 {
   imports = [
@@ -52,8 +57,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Tailscale VPN
-  services.tailscale.enable = true;
+  # Tailscale VPN — follow nixpkgs-unstable for automatic version updates.
+  services.tailscale = {
+    enable = true;
+    package = tailscaleUnstable;
+  };
   networking.firewall.allowedUDPPorts = [ 41641 ];
 
   # Set your time zone.

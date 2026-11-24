@@ -8,10 +8,10 @@
     mako # notification system developed by swaywm maintainer
   ];
 
-   # Mounhttps://www.reddit.com/r/linux/comments/1ajslo3/what_are_your_most_valuable_and_loved_command/t, trash, and other functionalities
+  # Mounhttps://www.reddit.com/r/linux/comments/1ajslo3/what_are_your_most_valuable_and_loved_command/t, trash, and other functionalities
   services.gvfs.enable = true;
 
-   # Thumbnail support for images
+  # Thumbnail support for images
   services.tumbler.enable = true;
 
   # needed for sway home manager configuration

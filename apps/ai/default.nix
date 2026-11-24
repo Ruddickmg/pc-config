@@ -5,4 +5,3 @@
     (import ./copilot.nix { inherit pkgs-unstable; })
   ];
 }
-

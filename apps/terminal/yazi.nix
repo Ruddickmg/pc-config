@@ -72,52 +72,82 @@
           desc = "Fuzzy search bookmarks";
         }
         {
-          on = [ "]" "a" ];
+          on = [
+            "]"
+            "a"
+          ];
           run = "plugin whoosh save";
           desc = "Bookmark hovered file/dir";
         }
         {
-          on = [ "]" "A" ];
+          on = [
+            "]"
+            "A"
+          ];
           run = "plugin whoosh save_cwd";
           desc = "Bookmark current directory";
         }
         {
-          on = [ "]" "t" ];
+          on = [
+            "]"
+            "t"
+          ];
           run = "plugin whoosh save_temp";
           desc = "Temp bookmark hovered file/dir";
         }
         {
-          on = [ "]" "T" ];
+          on = [
+            "]"
+            "T"
+          ];
           run = "plugin whoosh save_cwd_temp";
           desc = "Temp bookmark current directory";
         }
         {
-          on = [ "]" "f" ];
+          on = [
+            "]"
+            "f"
+          ];
           run = "plugin whoosh jump_by_fzf";
           desc = "Jump bookmark by fzf";
         }
         {
-          on = [ "]" "d" ];
+          on = [
+            "]"
+            "d"
+          ];
           run = "plugin whoosh delete_by_key";
           desc = "Delete bookmark by key";
         }
         {
-          on = [ "]" "D" ];
+          on = [
+            "]"
+            "D"
+          ];
           run = "plugin whoosh delete_by_fzf";
           desc = "Delete bookmarks by fzf";
         }
         {
-          on = [ "]" "C" ];
+          on = [
+            "]"
+            "C"
+          ];
           run = "plugin whoosh delete_all";
           desc = "Delete all user bookmarks";
         }
         {
-          on = [ "]" "r" ];
+          on = [
+            "]"
+            "r"
+          ];
           run = "plugin whoosh rename_by_key";
           desc = "Rename bookmark by key";
         }
         {
-          on = [ "]" "R" ];
+          on = [
+            "]"
+            "R"
+          ];
           run = "plugin whoosh rename_by_fzf";
           desc = "Rename bookmark by fzf";
         }
@@ -191,16 +221,30 @@
       };
     };
     # Stylix owns the rest of theme.toml; these extend its [icon] section.
-    theme.icon.prepend_dirs = let
-      # Match the color Stylix uses for its other user-directory icons.
-      fg = config.lib.stylix.colors.withHashtag.cyan;
-    in [
-      # Network share folder (nf-md-folder_network)
-      { name = "Shared"; text = "󰡰"; inherit fg; }
-      # Generic media folder (nf-oct-file_media)
-      { name = "Media"; text = ""; inherit fg; }
-      # Torrent downloads folder (nf-md-folder_download)
-      { name = "Torrents"; text = "󰉍"; inherit fg; }
-    ];
+    theme.icon.prepend_dirs =
+      let
+        # Match the color Stylix uses for its other user-directory icons.
+        fg = config.lib.stylix.colors.withHashtag.cyan;
+      in
+      [
+        # Network share folder (nf-md-folder_network)
+        {
+          name = "Shared";
+          text = "󰡰";
+          inherit fg;
+        }
+        # Generic media folder (nf-oct-file_media)
+        {
+          name = "Media";
+          text = "";
+          inherit fg;
+        }
+        # Torrent downloads folder (nf-md-folder_download)
+        {
+          name = "Torrents";
+          text = "󰉍";
+          inherit fg;
+        }
+      ];
   };
 }

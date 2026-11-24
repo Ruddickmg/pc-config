@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   home = {
     packages = with pkgs; [ zoxide ];
-    shellAliases = { cd = "z"; };
+    shellAliases = {
+      cd = "z";
+    };
   };
   programs.zoxide = {
     enable = true;

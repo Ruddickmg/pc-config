@@ -24,7 +24,11 @@
 #         `- ~5% spare    emergency reserve the filesystem cannot eat;
 #                        recover with: lvextend -rL +40G /dev/vg/data
 let
-  btrfsOpts = [ "compress=zstd" "noatime" "discard=async" ];
+  btrfsOpts = [
+    "compress=zstd"
+    "noatime"
+    "discard=async"
+  ];
 in
 {
   disko.devices = {
@@ -43,7 +47,10 @@ in
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "fmask=0077" "dmask=0077" ];
+              mountOptions = [
+                "fmask=0077"
+                "dmask=0077"
+              ];
             };
           };
           crypt = {
@@ -82,7 +89,10 @@ in
           size = "95%FREE";
           content = {
             type = "btrfs";
-            extraArgs = [ "-L" "nixos" ];
+            extraArgs = [
+              "-L"
+              "nixos"
+            ];
             subvolumes = {
               root = {
                 mountpoint = "/";

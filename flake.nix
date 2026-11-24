@@ -53,6 +53,9 @@
           (import rust-overlay)
         ];
       };
+      # Follow nixpkgs-unstable so `nix flake update` picks up new Tailscale
+      # releases without editing a version or checksum here.
+      tailscaleUnstable = pkgs-unstable.tailscale;
       rustToolChain = (
         pkgs-rust.rust-bin.stable.latest.default.override {
           extensions = [
@@ -66,7 +69,7 @@
     in
     {
       nixosConfigurations.nixos = lib.nixosSystem {
-        specialArgs = { inherit nur; };
+        specialArgs = { inherit nur tailscaleUnstable; };
         modules = [
           ./system
           ./configuration.nix

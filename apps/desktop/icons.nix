@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
   stylix.icons = with pkgs; {
     enable = true;
     dark = "Orange";

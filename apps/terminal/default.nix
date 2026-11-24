@@ -1,4 +1,11 @@
-{ pkgs, pkgs-unstable, inputs, system, ... }: {
+{
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  system,
+  ...
+}:
+{
   imports = [
     (import ./halloy.nix { inherit pkgs; })
     (import ./zoxide.nix { inherit pkgs; })

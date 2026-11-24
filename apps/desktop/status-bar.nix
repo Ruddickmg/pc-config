@@ -14,7 +14,19 @@
 
         modules-left = [ "sway/workspaces" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "tray" "network" "bluetooth" "pulseaudio" "cpu" "memory" "temperature" "backlight" "battery" "clock" "custom/power" ];
+        modules-right = [
+          "tray"
+          "network"
+          "bluetooth"
+          "pulseaudio"
+          "cpu"
+          "memory"
+          "temperature"
+          "backlight"
+          "battery"
+          "clock"
+          "custom/power"
+        ];
 
         "sway/workspaces" = {
           format = "{name}";
@@ -31,7 +43,13 @@
         };
 
         "network" = {
-          format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+          format-icons = [
+            "󰤯"
+            "󰤟"
+            "󰤢"
+            "󰤥"
+            "󰤨"
+          ];
           format = "{icon}";
           format-wifi = "{icon}";
           format-ethernet = "<span size='11500'>󰈀</span>";
@@ -64,7 +82,11 @@
           format-source = "<span size='11500'>󰍬</span>";
           format-source-muted = "<span size='11500'>󰍭</span>";
           format-icons = {
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
           on-click-right = "${pkgs.pamixer}/bin/pamixer -t";
           scroll-step = 5;
@@ -86,7 +108,11 @@
 
         "backlight" = {
           format = "{icon}";
-          format-icons = [ "󱩎" "󱩒" "󰖨" ];
+          format-icons = [
+            "󱩎"
+            "󱩒"
+            "󰖨"
+          ];
           on-scroll-up = "brightnessctl set +5%";
           on-scroll-down = "brightnessctl set 5%-";
         };
@@ -103,7 +129,18 @@
           format-charging = "<span size='11500'>󰂄</span>";
           format-plugged = "<span size='11500'>󰂄</span>";
           format-full = "<span size='11500'>󰁹</span>";
-          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           tooltip-format = "{timeTo}\n{capacity}%";
         };
 

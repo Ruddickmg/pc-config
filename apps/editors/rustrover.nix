@@ -1,4 +1,10 @@
-{ pkgs-unstable, inputs, system, ... }: {
+{
+  pkgs-unstable,
+  inputs,
+  system,
+  ...
+}:
+{
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   home.packages = with inputs.nix-jetbrains-plugins.lib.${system}; [

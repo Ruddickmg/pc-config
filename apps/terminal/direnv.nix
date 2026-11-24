@@ -10,4 +10,3 @@
     nix-direnv.enable = true;
   };
 }
-
