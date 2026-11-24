@@ -3,6 +3,7 @@
   programs.starship = {
     enable = true;
     settings = {
+      scan_timeout = 100;
       add_newline = false;
       aws.disabled = true;
       gcloud.disabled = true;

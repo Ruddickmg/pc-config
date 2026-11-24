@@ -1,4 +1,4 @@
-{ inputs, pkgs-unstable, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.nixCats.homeModule

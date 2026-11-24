@@ -199,6 +199,8 @@
       { name = "Shared"; text = "󰡰"; inherit fg; }
       # Generic media folder (nf-oct-file_media)
       { name = "Media"; text = ""; inherit fg; }
+      # Torrent downloads folder (nf-md-folder_download)
+      { name = "Torrents"; text = "󰉍"; inherit fg; }
     ];
   };
 }
